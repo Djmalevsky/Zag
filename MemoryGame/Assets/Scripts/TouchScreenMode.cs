@@ -34,6 +34,7 @@ public class TouchScreenMode : MonoBehaviour
     public string[] TheInstructions;
     public int Round = 1;
     public bool EndGame = false;
+    public int LinesAtATime = 2;
     public void Awake()
     {
 
@@ -1280,7 +1281,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         break;
                                 }
-                                if(PlayerCount >= 2 * Round)
+                                if(PlayerCount >= LinesAtATime * Round)
                                 {
                                   //  AI.pp();
                                     WhatIsGoingOn.text = "Generting Lines";

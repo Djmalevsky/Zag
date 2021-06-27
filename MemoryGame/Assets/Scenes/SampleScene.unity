@@ -1276,6 +1276,8 @@ MonoBehaviour:
   WhatIsGoingOn: {fileID: 1704991700}
   TheInstructions: []
   Round: 1
+  EndGame: 0
+  LinesAtATime: 2
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1347,6 +1349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Instruction: []
   HasStarted: 0
+  T: {fileID: 519420030}
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,9 +8,14 @@ public class AIgenerated : MonoBehaviour
     int InstructionCount = 2;
     public string[] Instruction;
     public bool HasStarted = false;
+    public TouchScreenMode T;
+    private void Awake()
+    {
+        InstructionCount = T.LinesAtATime;
+    }
     public void pp()
     {
-        Instruction = new string[2];
+        Instruction = new string[InstructionCount];
         if (!HasStarted)
         {
             int randnum = Random.Range(0, 9);
