@@ -164,9 +164,18 @@ public class ExampleClass : MonoBehaviour
     }
     private void OnDestroy()
     {
-        GameObject.Find("Main Camera").GetComponent<TouchScreenMode>().pp++;
-        GameObject.Find("Main Camera").GetComponent<TouchScreenMode>().EndingDotAI = "";
-        GameObject.Find("Main Camera").GetComponent<TouchScreenMode>().HasDrawnLine = false;
+        if (GameObject.Find("Main Camera").GetComponent<TouchScreenMode>() != null)
+        {
+            GameObject.Find("Main Camera").GetComponent<TouchScreenMode>().pp++;
+            GameObject.Find("Main Camera").GetComponent<TouchScreenMode>().EndingDotAI = "";
+            GameObject.Find("Main Camera").GetComponent<TouchScreenMode>().HasDrawnLine = false;
+        }
+        if(GameObject.Find("Main Camera").GetComponent<TwoByTwo>() != null)
+        {
+            GameObject.Find("Main Camera").GetComponent<TwoByTwo>().pp++;
+            GameObject.Find("Main Camera").GetComponent<TwoByTwo>().EndingDotAI = "";
+            GameObject.Find("Main Camera").GetComponent<TwoByTwo>().HasDrawnLine = false;
+        }
         //   GameObject.Find("Main Camera").GetComponent<TestScript>().pp();
         //   GameObject.Find("Main Camera").GetComponent<TouchScreenMode>().pp++;
         //  GameObject.Find("Main Camera").GetComponent<TouchScreenMode>().EndingDotAI = "";

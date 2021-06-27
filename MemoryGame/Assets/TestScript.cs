@@ -10,10 +10,12 @@ public class TestScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject Clone4 = Instantiate(PrefabTrail, Line[8].transform);
+        GameObject Clone4 = Instantiate(PrefabTrail, Line[2].transform);
         Clone4.GetComponent<ExampleClass>().XDistance = 0;
-        Clone4.GetComponent<ExampleClass>().YDistance = 3;
-
+        Clone4.GetComponent<ExampleClass>().YDistance = 2;
+        GameObject Clone = Instantiate(PrefabTrail, Line[1].transform); //animate first line
+        Clone.GetComponent<ExampleClass>().XDistance = 0;
+        Clone.GetComponent<ExampleClass>().YDistance = -2;
 
     }
     public void pp()

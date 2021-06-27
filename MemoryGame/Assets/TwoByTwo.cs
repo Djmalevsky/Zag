@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class TwoByTwo : MonoBehaviour
 {
     // Update is called once per frame
-    public AIgenerated AI;
+    public AIgenerated2 AI;
     public string StartingDotAI = "";
     public string EndingDotAI = "";
     public bool HasDrawnLine = false;
@@ -20,10 +20,7 @@ public class TwoByTwo : MonoBehaviour
     public bool[] isLineActive;
     public bool isOnelineActive = false;
     bool HasPlaced = false;
-    float CloseXAxis = 2;
-    float FarXAxis = 4;
-    float CloseYAxis = 3;
-    float FarYAxis = 6;
+    float Axis = 2;
     public int pp = 0;
     int sec = 3;
     int PlayerCount = 0;
@@ -37,8 +34,7 @@ public class TwoByTwo : MonoBehaviour
     public int LinesAtATime = 2;
     public void Awake()
     {
-
-        isLineActive = new bool[9];
+        isLineActive = new bool[4];
         // Dots = new GameObject[9];
         IsAIGameState = true;
         EndingDots = new string[300];
@@ -59,32 +55,18 @@ public class TwoByTwo : MonoBehaviour
                 {
                     case "Dot02":
                         GameObject Clone = Instantiate(PrefabTrail, Line[0].transform);
-                        Clone.GetComponent<ExampleClass>().XDistance = CloseXAxis;
+                        Clone.GetComponent<ExampleClass>().XDistance = Axis;
                         Clone.GetComponent<ExampleClass>().YDistance = 0;
                         break;
-                    case "Dot04":
+                    case "Dot03":
                         GameObject Clone2 = Instantiate(PrefabTrail, Line[0].transform);
-                        Clone2.GetComponent<ExampleClass>().XDistance = 0;
-                        Clone2.GetComponent<ExampleClass>().YDistance = -CloseYAxis;
+                        Clone2.GetComponent<ExampleClass>().XDistance = Axis;
+                        Clone2.GetComponent<ExampleClass>().YDistance = -Axis;
                         break;
-                    case "Dot05":
+                    case "Dot04":
                         GameObject Clone3 = Instantiate(PrefabTrail, Line[0].transform);
-                        Clone3.GetComponent<ExampleClass>().XDistance = CloseXAxis;
-                        Clone3.GetComponent<ExampleClass>().YDistance = -CloseYAxis;
-                        break;
-                    case "Dot06":
-                        GameObject Clone4 = Instantiate(PrefabTrail, Line[0].transform);
-                        Clone4.GetComponent<ExampleClass>().XDistance = FarXAxis;
-                        Clone4.GetComponent<ExampleClass>().YDistance = -CloseYAxis;
-                        break;
-                    case "Dot08":
-                        GameObject Clone5 = Instantiate(PrefabTrail, Line[0].transform);
-                        Clone5.GetComponent<ExampleClass>().XDistance = CloseXAxis;
-                        Clone5.GetComponent<ExampleClass>().YDistance = -FarYAxis;
-                        break;
-
-                    default:
-                        //  Line[i].enabled = false;
+                        Clone3.GetComponent<ExampleClass>().XDistance = 0;
+                        Clone3.GetComponent<ExampleClass>().YDistance = -Axis;
                         break;
                 }
                 break;
@@ -93,41 +75,18 @@ public class TwoByTwo : MonoBehaviour
                 {
                     case "Dot01":
                         GameObject Clone = Instantiate(PrefabTrail, Line[1].transform);
-                        Clone.GetComponent<ExampleClass>().XDistance = -CloseXAxis;
+                        Clone.GetComponent<ExampleClass>().XDistance = -Axis;
                         Clone.GetComponent<ExampleClass>().YDistance = 0;
                         break;
                     case "Dot03":
                         GameObject Clone2 = Instantiate(PrefabTrail, Line[1].transform);
-                        Clone2.GetComponent<ExampleClass>().XDistance = CloseXAxis;
-                        Clone2.GetComponent<ExampleClass>().YDistance = 0;
+                        Clone2.GetComponent<ExampleClass>().XDistance = 0;
+                        Clone2.GetComponent<ExampleClass>().YDistance = -Axis;
                         break;
                     case "Dot04":
                         GameObject Clone3 = Instantiate(PrefabTrail, Line[1].transform);
-                        Clone3.GetComponent<ExampleClass>().XDistance = -CloseXAxis;
-                        Clone3.GetComponent<ExampleClass>().YDistance = -CloseYAxis;
-                        break;
-                    case "Dot05":
-                        GameObject Clone4 = Instantiate(PrefabTrail, Line[1].transform);
-                        Clone4.GetComponent<ExampleClass>().XDistance = 0;
-                        Clone4.GetComponent<ExampleClass>().YDistance = -CloseYAxis;
-                        break;
-                    case "Dot06":
-                        GameObject Clone5 = Instantiate(PrefabTrail, Line[1].transform);
-                        Clone5.GetComponent<ExampleClass>().XDistance = CloseXAxis;
-                        Clone5.GetComponent<ExampleClass>().YDistance = -CloseYAxis;
-                        break;
-                    case "Dot07":
-                        GameObject Clone6 = Instantiate(PrefabTrail, Line[1].transform);
-                        Clone6.GetComponent<ExampleClass>().XDistance = -CloseXAxis;
-                        Clone6.GetComponent<ExampleClass>().YDistance = -FarYAxis;
-                        break;
-                    case "Dot09":
-                        GameObject Clone7 = Instantiate(PrefabTrail, Line[1].transform);
-                        Clone7.GetComponent<ExampleClass>().XDistance = CloseXAxis;
-                        Clone7.GetComponent<ExampleClass>().YDistance = -FarYAxis;
-                        break;
-                    default:
-                        //  Line[i].enabled = false;
+                        Clone3.GetComponent<ExampleClass>().XDistance = 0;
+                        Clone3.GetComponent<ExampleClass>().YDistance = -Axis;
                         break;
                 }
                 break;
@@ -136,269 +95,38 @@ public class TwoByTwo : MonoBehaviour
                 {
                     case "Dot02":
                         GameObject Clone = Instantiate(PrefabTrail, Line[2].transform);
-                        Clone.GetComponent<ExampleClass>().XDistance = -CloseXAxis;
-                        Clone.GetComponent<ExampleClass>().YDistance = 0;
+                        Clone.GetComponent<ExampleClass>().XDistance = 0;
+                        Clone.GetComponent<ExampleClass>().YDistance = Axis;
+                        break;
+                    case "Dot01":
+                        GameObject Clone2 = Instantiate(PrefabTrail, Line[2].transform);
+                        Clone2.GetComponent<ExampleClass>().XDistance = 0;
+                        Clone2.GetComponent<ExampleClass>().YDistance = Axis;
                         break;
                     case "Dot04":
-                        GameObject Clone2 = Instantiate(PrefabTrail, Line[2].transform);
-                        Clone2.GetComponent<ExampleClass>().XDistance = -FarXAxis;
-                        Clone2.GetComponent<ExampleClass>().YDistance = -CloseYAxis;
-                        break;
-                    case "Dot05":
                         GameObject Clone3 = Instantiate(PrefabTrail, Line[2].transform);
-                        Clone3.GetComponent<ExampleClass>().XDistance = -CloseXAxis;
-                        Clone3.GetComponent<ExampleClass>().YDistance = -CloseYAxis;
-                        break;
-                    case "Dot06":
-                        GameObject Clone4 = Instantiate(PrefabTrail, Line[2].transform);
-                        Clone4.GetComponent<ExampleClass>().XDistance = 0;
-                        Clone4.GetComponent<ExampleClass>().YDistance = -CloseYAxis;
-                        break;
-                    case "Dot08":
-                        GameObject Clone5 = Instantiate(PrefabTrail, Line[2].transform);
-                        Clone5.GetComponent<ExampleClass>().XDistance = -CloseXAxis;
-                        Clone5.GetComponent<ExampleClass>().YDistance = -FarYAxis;
-                        break;
-                    default:
+                        Clone3.GetComponent<ExampleClass>().XDistance = Axis;
+                        Clone3.GetComponent<ExampleClass>().YDistance = 0;
                         break;
                 }
                 break;
             case "Dot04":
                 switch (EndingDotAI)
                 {
-                    case "Dot01":
+                    case "Dot02":
                         GameObject Clone = Instantiate(PrefabTrail, Line[3].transform);
-                        Clone.GetComponent<ExampleClass>().XDistance = 0;
-                        Clone.GetComponent<ExampleClass>().YDistance = CloseYAxis;
+                        Clone.GetComponent<ExampleClass>().XDistance = -Axis;
+                        Clone.GetComponent<ExampleClass>().YDistance = Axis;
                         break;
-                    case "Dot02":
+                    case "Dot03":
                         GameObject Clone2 = Instantiate(PrefabTrail, Line[3].transform);
-                        Clone2.GetComponent<ExampleClass>().XDistance = CloseXAxis;
-                        Clone2.GetComponent<ExampleClass>().YDistance = CloseYAxis;
+                        Clone2.GetComponent<ExampleClass>().XDistance = -Axis;
+                        Clone2.GetComponent<ExampleClass>().YDistance = 0;
                         break;
-                    case "Dot03":
+                    case "Dot01":
                         GameObject Clone3 = Instantiate(PrefabTrail, Line[3].transform);
-                        Clone3.GetComponent<ExampleClass>().XDistance = FarXAxis;
-                        Clone3.GetComponent<ExampleClass>().YDistance = CloseYAxis;
-                        break;
-                    case "Dot05":
-                        GameObject Clone4 = Instantiate(PrefabTrail, Line[3].transform);
-                        Clone4.GetComponent<ExampleClass>().XDistance = CloseXAxis;
-                        Clone4.GetComponent<ExampleClass>().YDistance = 0;
-                        break;
-                    case "Dot07":
-                        GameObject Clone5 = Instantiate(PrefabTrail, Line[3].transform);
-                        Clone5.GetComponent<ExampleClass>().XDistance = 0;
-                        Clone5.GetComponent<ExampleClass>().YDistance = -CloseYAxis;
-                        break;
-                    case "Dot08":
-                        GameObject Clone6 = Instantiate(PrefabTrail, Line[3].transform);
-                        Clone6.GetComponent<ExampleClass>().XDistance = CloseXAxis;
-                        Clone6.GetComponent<ExampleClass>().YDistance = -CloseYAxis;
-                        break;
-                    case "Dot09":
-                        GameObject Clone7 = Instantiate(PrefabTrail, Line[3].transform);
-                        Clone7.GetComponent<ExampleClass>().XDistance = FarXAxis;
-                        Clone7.GetComponent<ExampleClass>().YDistance = -CloseYAxis;
-                        break;
-                    default:
-                        // Line[i].enabled = false;
-                        break;
-                }
-                break;
-            case "Dot05":
-                switch (EndingDotAI)
-                {
-                    case "Dot01":
-                        GameObject Clone = Instantiate(PrefabTrail, Line[4].transform);
-                        Clone.GetComponent<ExampleClass>().XDistance = -CloseXAxis;
-                        Clone.GetComponent<ExampleClass>().YDistance = CloseYAxis;
-                        break;
-                    case "Dot02":
-                        GameObject Clone2 = Instantiate(PrefabTrail, Line[4].transform);
-                        Clone2.GetComponent<ExampleClass>().XDistance = 0;
-                        Clone2.GetComponent<ExampleClass>().YDistance = CloseYAxis;
-                        break;
-                    case "Dot03":
-                        GameObject Clone3 = Instantiate(PrefabTrail, Line[4].transform);
-                        Clone3.GetComponent<ExampleClass>().XDistance = CloseXAxis;
-                        Clone3.GetComponent<ExampleClass>().YDistance = CloseYAxis;
-                        break;
-                    case "Dot04":
-                        GameObject Clone4 = Instantiate(PrefabTrail, Line[4].transform);
-                        Clone4.GetComponent<ExampleClass>().XDistance = -CloseXAxis;
-                        Clone4.GetComponent<ExampleClass>().YDistance = 0;
-                        break;
-                    case "Dot06":
-                        GameObject Clone5 = Instantiate(PrefabTrail, Line[4].transform);
-                        Clone5.GetComponent<ExampleClass>().XDistance = CloseXAxis;
-                        Clone5.GetComponent<ExampleClass>().YDistance = 0;
-                        break;
-                    case "Dot07":
-                        GameObject Clone6 = Instantiate(PrefabTrail, Line[4].transform);
-                        Clone6.GetComponent<ExampleClass>().XDistance = -CloseXAxis;
-                        Clone6.GetComponent<ExampleClass>().YDistance = -CloseYAxis;
-                        break;
-                    case "Dot08":
-                        GameObject Clone7 = Instantiate(PrefabTrail, Line[4].transform);
-                        Clone7.GetComponent<ExampleClass>().XDistance = 0;
-                        Clone7.GetComponent<ExampleClass>().YDistance = -CloseYAxis;
-                        break;
-                    case "Dot09":
-                        GameObject Clone8 = Instantiate(PrefabTrail, Line[4].transform);
-                        Clone8.GetComponent<ExampleClass>().XDistance = CloseXAxis;
-                        Clone8.GetComponent<ExampleClass>().YDistance = -CloseYAxis;
-                        break;
-                    default:
-                        //  Line[i].enabled = false;
-                        break;
-                }
-                break;
-            case "Dot06":
-                switch (EndingDotAI)
-                {
-                    case "Dot01":
-                        GameObject Clone = Instantiate(PrefabTrail, Line[5].transform);
-                        Clone.GetComponent<ExampleClass>().XDistance = -FarXAxis;
-                        Clone.GetComponent<ExampleClass>().YDistance = CloseYAxis;
-                        break;
-                    case "Dot02":
-                        GameObject Clone2 = Instantiate(PrefabTrail, Line[5].transform);
-                        Clone2.GetComponent<ExampleClass>().XDistance = -CloseXAxis;
-                        Clone2.GetComponent<ExampleClass>().YDistance = CloseYAxis;
-                        break;
-                    case "Dot03":
-                        GameObject Clone3 = Instantiate(PrefabTrail, Line[5].transform);
-                        Clone3.GetComponent<ExampleClass>().XDistance = 0;
-                        Clone3.GetComponent<ExampleClass>().YDistance = CloseYAxis;
-                        break;
-                    case "Dot05":
-                        GameObject Clone4 = Instantiate(PrefabTrail, Line[5].transform);
-                        Clone4.GetComponent<ExampleClass>().XDistance = -CloseXAxis;
-                        Clone4.GetComponent<ExampleClass>().YDistance = 0;
-                        break;
-                    case "Dot07":
-                        GameObject Clone5 = Instantiate(PrefabTrail, Line[5].transform);
-                        Clone5.GetComponent<ExampleClass>().XDistance = -FarXAxis;
-                        Clone5.GetComponent<ExampleClass>().YDistance = -CloseYAxis;
-                        break;
-                    case "Dot08":
-                        GameObject Clone6 = Instantiate(PrefabTrail, Line[5].transform);
-                        Clone6.GetComponent<ExampleClass>().XDistance = -CloseXAxis;
-                        Clone6.GetComponent<ExampleClass>().YDistance = -CloseYAxis;
-                        break;
-                    case "Dot09":
-                        GameObject Clone7 = Instantiate(PrefabTrail, Line[5].transform);
-                        Clone7.GetComponent<ExampleClass>().XDistance = 0;
-                        Clone7.GetComponent<ExampleClass>().YDistance = -CloseYAxis;
-                        break;
-                    default:
-                        //   Line[i].enabled = false;
-                        break;
-                }
-                break;
-            case "Dot07":
-                switch (EndingDotAI)
-                {
-                    case "Dot02":
-                        GameObject Clone = Instantiate(PrefabTrail, Line[6].transform);
-                        Clone.GetComponent<ExampleClass>().XDistance = CloseXAxis;
-                        Clone.GetComponent<ExampleClass>().YDistance = FarYAxis;
-                        break;
-                    case "Dot04":
-                        GameObject Clone2 = Instantiate(PrefabTrail, Line[6].transform);
-                        Clone2.GetComponent<ExampleClass>().XDistance = 0;
-                        Clone2.GetComponent<ExampleClass>().YDistance = CloseYAxis;
-                        break;
-                    case "Dot05":
-                        GameObject Clone3 = Instantiate(PrefabTrail, Line[6].transform);
-                        Clone3.GetComponent<ExampleClass>().XDistance = CloseXAxis;
-                        Clone3.GetComponent<ExampleClass>().YDistance = CloseYAxis;
-                        break;
-                    case "Dot06":
-                        GameObject Clone4 = Instantiate(PrefabTrail, Line[6].transform);
-                        Clone4.GetComponent<ExampleClass>().XDistance = FarXAxis;
-                        Clone4.GetComponent<ExampleClass>().YDistance = CloseYAxis;
-                        break;
-                    case "Dot08":
-                        GameObject Clone5 = Instantiate(PrefabTrail, Line[6].transform);
-                        Clone5.GetComponent<ExampleClass>().XDistance = CloseXAxis;
-                        Clone5.GetComponent<ExampleClass>().YDistance = 0;
-                        break;
-                    default:
-                        break;
-                }
-                break;
-            case "Dot08":
-                switch (EndingDotAI)
-                {
-                    case "Dot01":
-                        GameObject Clone = Instantiate(PrefabTrail, Line[7].transform);
-                        Clone.GetComponent<ExampleClass>().XDistance = -CloseXAxis;
-                        Clone.GetComponent<ExampleClass>().YDistance = FarYAxis; break;
-                    case "Dot03":
-                        GameObject Clone2 = Instantiate(PrefabTrail, Line[7].transform);
-                        Clone2.GetComponent<ExampleClass>().XDistance = CloseXAxis;
-                        Clone2.GetComponent<ExampleClass>().YDistance = FarYAxis;
-                        break;
-                    case "Dot04":
-                        GameObject Clone3 = Instantiate(PrefabTrail, Line[7].transform);
-                        Clone3.GetComponent<ExampleClass>().XDistance = -CloseXAxis;
-                        Clone3.GetComponent<ExampleClass>().YDistance = CloseYAxis;
-                        break;
-                    case "Dot05":
-                        GameObject Clone4 = Instantiate(PrefabTrail, Line[7].transform);
-                        Clone4.GetComponent<ExampleClass>().XDistance = 0;
-                        Clone4.GetComponent<ExampleClass>().YDistance = CloseYAxis;
-                        break;
-                    case "Dot06":
-                        GameObject Clone5 = Instantiate(PrefabTrail, Line[7].transform);
-                        Clone5.GetComponent<ExampleClass>().XDistance = CloseXAxis;
-                        Clone5.GetComponent<ExampleClass>().YDistance = CloseYAxis;
-                        break;
-                    case "Dot07":
-                        GameObject Clone6 = Instantiate(PrefabTrail, Line[7].transform);
-                        Clone6.GetComponent<ExampleClass>().XDistance = -CloseXAxis;
-                        Clone6.GetComponent<ExampleClass>().YDistance = 0;
-                        break;
-                    case "Dot09":
-                        GameObject Clone7 = Instantiate(PrefabTrail, Line[7].transform);
-                        Clone7.GetComponent<ExampleClass>().XDistance = CloseXAxis;
-                        Clone7.GetComponent<ExampleClass>().YDistance = 0;
-                        break;
-                    default:
-                        break;
-                }
-                break;
-            case "Dot09":
-                switch (EndingDotAI)
-                {
-                    case "Dot02":
-                        GameObject Clone = Instantiate(PrefabTrail, Line[8].transform);
-                        Clone.GetComponent<ExampleClass>().XDistance = -CloseXAxis;
-                        Clone.GetComponent<ExampleClass>().YDistance = FarYAxis;
-                        break;
-                    case "Dot04":
-                        GameObject Clone2 = Instantiate(PrefabTrail, Line[8].transform);
-                        Clone2.GetComponent<ExampleClass>().XDistance = -FarXAxis;
-                        Clone2.GetComponent<ExampleClass>().YDistance = CloseYAxis;
-                        break;
-                    case "Dot05":
-                        GameObject Clone3 = Instantiate(PrefabTrail, Line[8].transform);
-                        Clone3.GetComponent<ExampleClass>().XDistance = -CloseXAxis;
-                        Clone3.GetComponent<ExampleClass>().YDistance = CloseYAxis;
-                        break;
-                    case "Dot06":
-                        GameObject Clone4 = Instantiate(PrefabTrail, Line[8].transform);
-                        Clone4.GetComponent<ExampleClass>().XDistance = 0;
-                        Clone4.GetComponent<ExampleClass>().YDistance = CloseYAxis;
-                        break;
-                    case "Dot08":
-                        GameObject Clone5 = Instantiate(PrefabTrail, Line[8].transform);
-                        Clone5.GetComponent<ExampleClass>().XDistance = -CloseXAxis;
-                        Clone5.GetComponent<ExampleClass>().YDistance = 0;
-                        break;
-                    default:
+                        Clone3.GetComponent<ExampleClass>().XDistance = -Axis;
+                        Clone3.GetComponent<ExampleClass>().YDistance = Axis;
                         break;
                 }
                 break;
@@ -1285,20 +1013,20 @@ public class TwoByTwo : MonoBehaviour
                                 {
                                     //  AI.pp();
                                     WhatIsGoingOn.text = "Generting Lines";
-                                    IsAIGameState = true;
-                                    HasDrawnLine = false;
-                                    PlayerCount = 0;
-                                    AI.pp();
+                                  //  IsAIGameState = true;
+                                   // HasDrawnLine = false;
+                                   // PlayerCount = 0;
+                                    //AI.pp();
 
                                     for (int p = 0; p < AI.Instruction.Length; p++)
                                     {
-                                        TheInstructions[p + 2 * Round] = AI.Instruction[p];
+                                    //    TheInstructions[p + 2 * Round] = AI.Instruction[p];
                                     }
-                                    Round++;
-                                    pp = 0;
+                                   // Round++;
+                                    //pp = 0;
                                     for (int a = 0; a < Line.Length; a++)
                                     {
-                                        Line[a].enabled = false;
+                                      //  Line[a].enabled = false;
                                     }
 
                                 }
@@ -1328,438 +1056,6 @@ public class TwoByTwo : MonoBehaviour
                                 HasPlaced = false;
 
                                 LineCounter = 0;
-                            }
-
-                            switch (i)
-                            {
-                                case 0:
-                                    HasPlaced = false;
-                                    isLineActive[i] = false;
-                                    isOnelineActive = false;
-                                    if (hit.collider == null)
-                                    {
-                                        // Line[i].enabled = false;
-                                        return;
-                                    }
-
-                                    switch (hit.collider.name)
-                                    {
-                                        case "Dot02":
-                                            Vector3[] EndingPos = new Vector3[2];
-                                            EndingPos[1] = new Vector3(CloseXAxis, 0, 0);
-                                            Line[i].SetPositions(EndingPos);
-                                            break;
-                                        case "Dot04":
-                                            Vector3[] EndingPos1 = new Vector3[2];
-                                            EndingPos1[1] = new Vector3(0, -CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos1);
-                                            break;
-                                        case "Dot05":
-                                            Vector3[] EndingPos2 = new Vector3[2];
-                                            EndingPos2[1] = new Vector3(CloseXAxis, -CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos2);
-                                            break;
-                                        case "Dot06":
-                                            Vector3[] EndingPos3 = new Vector3[2];
-                                            EndingPos3[1] = new Vector3(FarXAxis, -CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos3);
-                                            break;
-                                        case "Dot08":
-                                            Vector3[] EndingPos4 = new Vector3[2];
-                                            EndingPos4[1] = new Vector3(CloseXAxis, -FarYAxis, 0);
-                                            Line[i].SetPositions(EndingPos4);
-                                            break;
-                                        default:
-                                            //  Line[i].enabled = false;
-                                            break;
-                                    }
-                                    break;
-                                case 1:
-                                    isLineActive[i] = false;
-                                    isOnelineActive = false;
-                                    HasPlaced = false;
-                                    if (hit.collider == null)
-                                    {
-                                        //  Line[i].enabled = false;
-                                        return;
-                                    }
-                                    switch (hit.collider.name)
-                                    {
-                                        case "Dot01":
-                                            Vector3[] EndingPos = new Vector3[2];
-                                            EndingPos[1] = new Vector3(-CloseXAxis, 0, 0);
-                                            Line[i].SetPositions(EndingPos);
-                                            break;
-                                        case "Dot03":
-                                            Vector3[] EndingPos2 = new Vector3[2];
-                                            EndingPos2[1] = new Vector3(CloseXAxis, 0, 0);
-                                            Line[i].SetPositions(EndingPos2);
-                                            break;
-                                        case "Dot04":
-                                            Vector3[] EndingPos3 = new Vector3[2];
-                                            EndingPos3[1] = new Vector3(-CloseXAxis, -CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos3);
-                                            break;
-                                        case "Dot05":
-                                            Vector3[] EndingPos4 = new Vector3[2];
-                                            EndingPos4[1] = new Vector3(0, -CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos4);
-                                            break;
-                                        case "Dot06":
-                                            Vector3[] EndingPos5 = new Vector3[2];
-                                            EndingPos5[1] = new Vector3(CloseXAxis, -CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos5);
-                                            break;
-                                        case "Dot07":
-                                            Vector3[] EndingPos6 = new Vector3[2];
-                                            EndingPos6[1] = new Vector3(-CloseXAxis, -FarYAxis, 0);
-                                            Line[i].SetPositions(EndingPos6);
-                                            break;
-                                        case "Dot09":
-                                            Vector3[] EndingPos7 = new Vector3[2];
-                                            EndingPos7[1] = new Vector3(CloseXAxis, -FarYAxis, 0);
-                                            Line[i].SetPositions(EndingPos7);
-                                            break;
-                                        default:
-                                            //  Line[i].enabled = false;
-                                            break;
-                                    }
-                                    break;
-                                case 2:
-                                    HasPlaced = false;
-                                    isLineActive[i] = false;
-                                    isOnelineActive = false;
-                                    if (hit.collider == null)
-                                    {
-                                        //  Line[i].enabled = false;
-                                        return;
-                                    }
-                                    switch (hit.collider.name)
-                                    {
-                                        case "Dot02":
-                                            Vector3[] EndingPos7 = new Vector3[2];
-                                            EndingPos7[1] = new Vector3(-CloseXAxis, 0, 0);
-                                            Line[i].SetPositions(EndingPos7);
-                                            break;
-                                        case "Dot04":
-                                            Vector3[] EndingPos6 = new Vector3[2];
-                                            EndingPos6[1] = new Vector3(-FarXAxis, -CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos6);
-                                            break;
-                                        case "Dot05":
-                                            Vector3[] EndingPos5 = new Vector3[2];
-                                            EndingPos5[1] = new Vector3(-CloseXAxis, -CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos5);
-                                            break;
-                                        case "Dot06":
-                                            Vector3[] EndingPos4 = new Vector3[2];
-                                            EndingPos4[1] = new Vector3(0, -CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos4);
-                                            break;
-                                        case "Dot08":
-                                            Vector3[] EndingPos3 = new Vector3[2];
-                                            EndingPos3[1] = new Vector3(-CloseXAxis, -FarYAxis, 0);
-                                            Line[i].SetPositions(EndingPos3);
-                                            break;
-                                        default:
-                                            //  Line[i].enabled = false;
-                                            break;
-                                    }
-                                    break;
-                                case 3:
-                                    HasPlaced = false;
-                                    isLineActive[i] = false;
-                                    isOnelineActive = false;
-                                    if (hit.collider == null)
-                                    {
-                                        //  Line[i].enabled = false;
-                                        return;
-                                    }
-                                    switch (hit.collider.name)
-                                    {
-                                        case "Dot01":
-                                            Vector3[] EndingPos7 = new Vector3[2];
-                                            EndingPos7[1] = new Vector3(0, CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos7);
-                                            break;
-                                        case "Dot02":
-                                            Vector3[] EndingPos = new Vector3[2];
-                                            EndingPos[1] = new Vector3(CloseXAxis, CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos);
-                                            break;
-                                        case "Dot03":
-                                            Vector3[] EndingPos1 = new Vector3[2];
-                                            EndingPos1[1] = new Vector3(FarXAxis, CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos1);
-                                            break;
-                                        case "Dot05":
-                                            Vector3[] EndingPos2 = new Vector3[2];
-                                            EndingPos2[1] = new Vector3(CloseXAxis, 0, 0);
-                                            Line[i].SetPositions(EndingPos2);
-                                            break;
-                                        case "Dot07":
-                                            Vector3[] EndingPos3 = new Vector3[2];
-                                            EndingPos3[1] = new Vector3(0, -CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos3);
-                                            break;
-                                        case "Dot08":
-                                            Vector3[] EndingPos4 = new Vector3[2];
-                                            EndingPos4[1] = new Vector3(CloseXAxis, -CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos4);
-                                            break;
-                                        case "Dot09":
-                                            Vector3[] EndingPos5 = new Vector3[2];
-                                            EndingPos5[1] = new Vector3(FarXAxis, -CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos5);
-                                            break;
-                                        default:
-                                            // Line[i].enabled = false;
-                                            break;
-                                    }
-                                    break;
-                                case 4:
-                                    HasPlaced = false;
-                                    isLineActive[i] = false;
-                                    isOnelineActive = false;
-                                    if (hit.collider == null)
-                                    {
-                                        // Line[i].enabled = false;
-                                        return;
-                                    }
-                                    switch (hit.collider.name)
-                                    {
-                                        case "Dot01":
-                                            Vector3[] EndingPos7 = new Vector3[2];
-                                            EndingPos7[1] = new Vector3(-CloseXAxis, CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos7);
-                                            break;
-                                        case "Dot02":
-                                            Vector3[] EndingPos6 = new Vector3[2];
-                                            EndingPos6[1] = new Vector3(0, CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos6);
-                                            break;
-                                        case "Dot03":
-                                            Vector3[] EndingPos5 = new Vector3[2];
-                                            EndingPos5[1] = new Vector3(CloseXAxis, CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos5);
-                                            break;
-                                        case "Dot04":
-                                            Vector3[] EndingPos4 = new Vector3[2];
-                                            EndingPos4[1] = new Vector3(-CloseXAxis, 0, 0);
-                                            Line[i].SetPositions(EndingPos4);
-                                            break;
-                                        case "Dot06":
-                                            Vector3[] EndingPos3 = new Vector3[2];
-                                            EndingPos3[1] = new Vector3(CloseXAxis, 0, 0);
-                                            Line[i].SetPositions(EndingPos3);
-                                            break;
-                                        case "Dot07":
-                                            Vector3[] EndingPos2 = new Vector3[2];
-                                            EndingPos2[1] = new Vector3(-CloseXAxis, -CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos2);
-                                            break;
-                                        case "Dot08":
-                                            Vector3[] EndingPos = new Vector3[2];
-                                            EndingPos[1] = new Vector3(0, -CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos);
-                                            break;
-                                        case "Dot09":
-                                            Vector3[] EndingPos9 = new Vector3[2];
-                                            EndingPos9[1] = new Vector3(CloseXAxis, -CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos9);
-                                            break;
-                                        default:
-                                            //  Line[i].enabled = false;
-                                            break;
-                                    }
-                                    break;
-                                case 5:
-                                    HasPlaced = false;
-                                    isLineActive[i] = false;
-                                    isOnelineActive = false;
-                                    if (hit.collider == null)
-                                    {
-                                        //  Line[i].enabled = false;
-                                        return;
-                                    }
-                                    switch (hit.collider.name)
-                                    {
-                                        case "Dot01":
-                                            Vector3[] EndingPos7 = new Vector3[2];
-                                            EndingPos7[1] = new Vector3(-FarXAxis, CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos7);
-                                            break;
-                                        case "Dot02":
-                                            Vector3[] EndingPos6 = new Vector3[2];
-                                            EndingPos6[1] = new Vector3(-CloseXAxis, CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos6);
-                                            break;
-                                        case "Dot03":
-                                            Vector3[] EndingPos5 = new Vector3[2];
-                                            EndingPos5[1] = new Vector3(0, CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos5);
-                                            break;
-                                        case "Dot05":
-                                            Vector3[] EndingPos4 = new Vector3[2];
-                                            EndingPos4[1] = new Vector3(-CloseXAxis, 0, 0);
-                                            Line[i].SetPositions(EndingPos4);
-                                            break;
-                                        case "Dot07":
-                                            Vector3[] EndingPos2 = new Vector3[2];
-                                            EndingPos2[1] = new Vector3(-FarXAxis, -CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos2);
-                                            break;
-                                        case "Dot08":
-                                            Vector3[] EndingPos = new Vector3[2];
-                                            EndingPos[1] = new Vector3(-CloseXAxis, -CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos);
-                                            break;
-                                        case "Dot09":
-                                            Vector3[] EndingPos9 = new Vector3[2];
-                                            EndingPos9[1] = new Vector3(0, -CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos9);
-                                            break;
-                                        default:
-                                            //   Line[i].enabled = false;
-                                            break;
-                                    }
-                                    break;
-                                case 6:
-                                    HasPlaced = false;
-                                    isLineActive[i] = false;
-                                    isOnelineActive = false;
-                                    if (hit.collider == null)
-                                    {
-                                        //  Line[i].enabled = false;
-                                        return;
-                                    }
-                                    switch (hit.collider.name)
-                                    {
-                                        case "Dot02":
-                                            Vector3[] EndingPos7 = new Vector3[2];
-                                            EndingPos7[1] = new Vector3(CloseXAxis, FarYAxis, 0);
-                                            Line[i].SetPositions(EndingPos7);
-                                            break;
-                                        case "Dot04":
-                                            Vector3[] EndingPos6 = new Vector3[2];
-                                            EndingPos6[1] = new Vector3(0, CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos6);
-                                            break;
-                                        case "Dot05":
-                                            Vector3[] EndingPos5 = new Vector3[2];
-                                            EndingPos5[1] = new Vector3(CloseXAxis, CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos5);
-                                            break;
-                                        case "Dot06":
-                                            Vector3[] EndingPos4 = new Vector3[2];
-                                            EndingPos4[1] = new Vector3(FarXAxis, CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos4);
-                                            break;
-                                        case "Dot08":
-                                            Vector3[] EndingPos3 = new Vector3[2];
-                                            EndingPos3[1] = new Vector3(CloseXAxis, 0, 0);
-                                            Line[i].SetPositions(EndingPos3);
-                                            break;
-                                        default:
-                                            //  Line[i].enabled = false;
-                                            break;
-                                    }
-                                    break;
-                                case 7:
-                                    HasPlaced = false;
-                                    isLineActive[i] = false;
-                                    isOnelineActive = false;
-                                    if (hit.collider == null)
-                                    {
-                                        //   Line[i].enabled = false;
-                                        return;
-                                    }
-                                    switch (hit.collider.name)
-                                    {
-                                        case "Dot01":
-                                            Vector3[] EndingPos7 = new Vector3[2];
-                                            EndingPos7[1] = new Vector3(-CloseXAxis, FarYAxis, 0);
-                                            Line[i].SetPositions(EndingPos7);
-                                            break;
-                                        case "Dot03":
-                                            Vector3[] EndingPos6 = new Vector3[2];
-                                            EndingPos6[1] = new Vector3(CloseXAxis, FarYAxis, 0);
-                                            Line[i].SetPositions(EndingPos6);
-                                            break;
-                                        case "Dot04":
-                                            Vector3[] EndingPos5 = new Vector3[2];
-                                            EndingPos5[1] = new Vector3(-CloseXAxis, CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos5);
-                                            break;
-                                        case "Dot05":
-                                            Vector3[] EndingPos4 = new Vector3[2];
-                                            EndingPos4[1] = new Vector3(0, CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos4);
-                                            break;
-                                        case "Dot06":
-                                            Vector3[] EndingPos2 = new Vector3[2];
-                                            EndingPos2[1] = new Vector3(CloseXAxis, CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos2);
-                                            break;
-                                        case "Dot07":
-                                            Vector3[] EndingPos = new Vector3[2];
-                                            EndingPos[1] = new Vector3(-CloseXAxis, 0, 0);
-                                            Line[i].SetPositions(EndingPos);
-                                            break;
-                                        case "Dot09":
-                                            Vector3[] EndingPos9 = new Vector3[2];
-                                            EndingPos9[1] = new Vector3(CloseXAxis, 0, 0);
-                                            Line[i].SetPositions(EndingPos9);
-                                            break;
-                                        default:
-                                            //  Line[i].enabled = false;
-                                            break;
-                                    }
-                                    break;
-                                case 8:
-                                    HasPlaced = false;
-                                    isLineActive[i] = false;
-                                    isOnelineActive = false;
-                                    if (hit.collider == null)
-                                    {
-                                        //  Line[i].enabled = false;
-                                        return;
-                                    }
-                                    switch (hit.collider.name)
-                                    {
-                                        case "Dot02":
-                                            Vector3[] EndingPos7 = new Vector3[2];
-                                            EndingPos7[1] = new Vector3(-CloseXAxis, FarYAxis, 0);
-                                            Line[i].SetPositions(EndingPos7);
-                                            break;
-                                        case "Dot04":
-                                            Vector3[] EndingPos6 = new Vector3[2];
-                                            EndingPos6[1] = new Vector3(-FarXAxis, CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos6);
-                                            break;
-                                        case "Dot05":
-                                            Vector3[] EndingPos5 = new Vector3[2];
-                                            EndingPos5[1] = new Vector3(-CloseXAxis, CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos5);
-                                            break;
-                                        case "Dot06":
-                                            Vector3[] EndingPos4 = new Vector3[2];
-                                            EndingPos4[1] = new Vector3(0, CloseYAxis, 0);
-                                            Line[i].SetPositions(EndingPos4);
-                                            break;
-                                        case "Dot08":
-                                            Vector3[] EndingPos3 = new Vector3[2];
-                                            EndingPos3[1] = new Vector3(-CloseXAxis, 0, 0);
-                                            Line[i].SetPositions(EndingPos3);
-                                            break;
-                                        default:
-                                            //    Line[i].enabled = false;
-                                            break;
-                                    }
-                                    break;
-                                default:
-                                    //  Line[i].enabled = false;
-                                    break;
                             }
                         }
                     }

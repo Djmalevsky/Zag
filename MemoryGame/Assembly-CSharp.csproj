@@ -63,6 +63,7 @@
     <Compile Include="Assets\TestScript.cs" />
     <Compile Include="Assets\Scripts\AIgenerated.cs" />
     <Compile Include="Assets\TwoByTwo.cs" />
+    <Compile Include="Assets\AIgenerated2.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
