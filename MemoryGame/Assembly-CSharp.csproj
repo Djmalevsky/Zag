@@ -60,8 +60,9 @@
     <Compile Include="Assets\Scripts\TouchScreenMode.cs" />
     <Compile Include="Assets\trailfollow.cs" />
     <Compile Include="Assets\Scripts\LineAnimator.cs" />
-    <Compile Include="Assets\Scripts\AIgenerated.cs" />
     <Compile Include="Assets\TestScript.cs" />
+    <Compile Include="Assets\Scripts\AIgenerated.cs" />
+    <Compile Include="Assets\TwoByTwo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
