@@ -5,46 +5,51 @@ using UnityEngine;
 public class AIgenerated : MonoBehaviour
 {
     string StartingDot = "";
-    int InstructionCount = 5;
+    int InstructionCount = 2;
     public string[] Instruction;
-
-    private void Awake()
+    public bool HasStarted = false;
+    public void pp()
     {
-        Instruction = new string[5];
-        int randnum = Random.Range(0, 9);
-        switch(randnum)
+        Instruction = new string[2];
+        if (!HasStarted)
         {
-            case 0:
-                StartingDot = "Dot01";
-                break;
-            case 1:
-                StartingDot = "Dot02";
-                break;
-            case 2:
-                StartingDot = "Dot03";
-                break;
-            case 3:
-                StartingDot = "Dot04";
-                break;
-            case 4:
-                StartingDot = "Dot05";
-                break;
-            case 5:
-                StartingDot = "Dot06";
-                break;
-            case 6:
-                StartingDot = "Dot07";
-                break;
-            case 7:
-                StartingDot = "Dot08";
-                break;
-            case 8:
-                StartingDot = "Dot09";
-                break;
-            default:
-                StartingDot = "Dot01";
-                break;
+            int randnum = Random.Range(0, 9);
+            switch (randnum)
+            {
+                case 0:
+                    StartingDot = "Dot01";
+                    break;
+                case 1:
+                    StartingDot = "Dot02";
+                    break;
+                case 2:
+                    StartingDot = "Dot03";
+                    break;
+                case 3:
+                    StartingDot = "Dot04";
+                    break;
+                case 4:
+                    StartingDot = "Dot05";
+                    break;
+                case 5:
+                    StartingDot = "Dot06";
+                    break;
+                case 6:
+                    StartingDot = "Dot07";
+                    break;
+                case 7:
+                    StartingDot = "Dot08";
+                    break;
+                case 8:
+                    StartingDot = "Dot09";
+                    break;
+                default:
+                    StartingDot = "Dot01";
+                    break;
+            }
+            HasStarted = true;
         }
+
         for (int i = 0; i < InstructionCount; i++)
         {
             
