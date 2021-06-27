@@ -17,7 +17,7 @@ public class ExampleClass : MonoBehaviour
        // tr.time = 3f;
         tr.widthMultiplier = 0.1f;
 
-        if (XDistance > YDistance)
+        if (Mathf.Abs(XDistance) > Mathf.Abs(YDistance))
         {
             if (Mathf.Abs(YDistance) > 0)
             {
@@ -26,7 +26,7 @@ public class ExampleClass : MonoBehaviour
         }
 
 
-        if (YDistance > XDistance)
+        if (Mathf.Abs(YDistance) > Mathf.Abs(XDistance))
         {
             if (Mathf.Abs(XDistance) > 0)
             {

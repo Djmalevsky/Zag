@@ -33,6 +33,7 @@ public class TouchScreenMode : MonoBehaviour
     public Text WhatIsGoingOn;
     public string[] TheInstructions;
     public int Round = 1;
+    public bool EndGame = false;
     public void Awake()
     {
 
@@ -412,6 +413,10 @@ public class TouchScreenMode : MonoBehaviour
     }
     void Update()
     {
+        if(EndGame == true)
+        {
+            return;
+        }
         if (IsAIGameState == true)
         {
             if (!HasDrawnLine)
@@ -589,6 +594,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot02")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
