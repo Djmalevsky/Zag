@@ -32,6 +32,10 @@ public class TwoByTwoUpdated : MonoBehaviour
     public int Round = 1;
     public bool EndGame = false;
     public int LinesAtATime = 2;
+    public Vector3 BottomRight1 = new Vector3(1, -2, 0);
+    public Vector3 TopRight1 = new Vector3(1, 0, 0);
+    public Vector3 TopLeft1 = new Vector3(-1, 0, 0);
+    public Vector3 BottomLeft1 = new Vector3(-1, -2, 0);
     public void Awake()
     {
         isLineActive = new bool[4];
@@ -430,7 +434,268 @@ public class TwoByTwoUpdated : MonoBehaviour
                                     {
                                         Line[a].enabled = false;
                                     }
+                                     bool[] Available = new bool[4];
+                                     Available[0] = false;
+                                     Available[1] = false;
+                                     Available[2] = false;
+                                     Available[3] = false;
+                                         int randnum4 = UnityEngine.Random.Range(0, 3);
+                                         switch (randnum4)
+                                         {
+                                             case 0:
+                                                 if(Available[0] == false)
+                                                 {
+                                                     Dots[0].transform.position = TopRight1;
+                                                     Available[0] = true;
+                                                 }
+                                                 else //if the top right is taken
+                                                 {
+                                                     int randnum = UnityEngine.Random.Range(0, 3);
+                                                     switch (randnum)
+                                                     {
+                                                         case 0:
+                                                            if (Available[1] == false) //if bottom left is also taken
+                                                            {
+                                                                Dots[0].transform.position = BottomLeft1;
+                                                                Available[1] = true;
+                                                            }
+                                                            else
+                                                            {
+                                                                int randnum33 = UnityEngine.Random.Range(0, 2);
+                                                                switch (randnum33)
+                                                                {
+                                                                    case 0:
+                                                                    if (Available[2] == false)
+                                                                    {
+                                                                        Dots[0].transform.position = BottomLeft1;
+                                                                        Available[2] = true;
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        Dots[0].transform.position = BottomLeft1;
+                                                                        Available[3] = true;
+                                                                    }
+                                                                    break;
+                                                                    case 1:
+                                                                    if (Available[3] == false)
+                                                                    {
+                                                                        Dots[0].transform.position = BottomLeft1;
+                                                                        Available[3] = true;
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        Dots[0].transform.position = BottomLeft1;
+                                                                        Available[2] = true;
+                                                                    }
+                                                                    break;
+                                                            }
+                                                            }
+                                                            break;
+                                                        case 1:
+                                                            if (Available[2] == false)
+                                                            {
+                                                                Dots[0].transform.position = TopLeft1;
+                                                                Available[2] = true;
+                                                            }
+                                                            else //if the top left also taken
+                                                            {
+                                                                int randnum33 = UnityEngine.Random.Range(0, 2);
+                                                                switch (randnum33)
+                                                                {
+                                                                    case 0:
+                                                                        if (Available[1] == false)
+                                                                        {
+                                                                            Dots[0].transform.position = BottomLeft1;
+                                                                            Available[1] = true;
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            Dots[0].transform.position = BottomLeft1;
+                                                                            Available[3] = true;
+                                                                        }
+                                                                        break;
+                                                                    case 1:
+                                                                        if (Available[3] == false)
+                                                                        {
+                                                                            Dots[0].transform.position = BottomLeft1;
+                                                                            Available[3] = true;
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            Dots[0].transform.position = BottomLeft1;
+                                                                            Available[1] = true;
+                                                                        }
+                                                                        break;
+                                                                }
+                                                            }
+                                                        break;
+                                                        case 3:
+                                                            if (Available[3] == false)
+                                                            {
+                                                                Dots[0].transform.position = BottomRight1;
+                                                                Available[3] = true;
+                                                            }
+                                                            else //if the bottom right also taken
+                                                            {
+                                                                int randnum33 = UnityEngine.Random.Range(0, 2);
+                                                                switch (randnum33)
+                                                                {
+                                                                    case 0:
+                                                                        if (Available[1] == false)
+                                                                        {
+                                                                            Dots[0].transform.position = BottomLeft1;
+                                                                            Available[1] = true;
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            Dots[0].transform.position = BottomLeft1;
+                                                                            Available[2] = true;
+                                                                        }
+                                                                        break;
+                                                                    case 1:
+                                                                        if (Available[2] == false)
+                                                                        {
+                                                                            Dots[0].transform.position = BottomLeft1;
+                                                                            Available[2] = true;
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            Dots[0].transform.position = BottomLeft1;
+                                                                            Available[1] = true;
+                                                                        }
+                                                                        break;
+                                                                }
+                                                            }
+                                                        break;
+                                                    }
+                                                 }
+                                                 break;
+                                             case 1:
+                                                 if (Available[1] == false)
+                                                 {
+                                                     Dots[0].transform.position = BottomLeft1;
+                                                     Available[1] = true;
+                                                 }
+                                                 break;
+                                             case 2:
+                                                 if (Available[2] == false)
+                                                 {
+                                                     Dots[0].transform.position = TopLeft1;
+                                                     Available[2] = true;
+                                                 }
+                                                 break;
+                                             case 3:
+                                                 if (Available[3] == false)
+                                                 {
+                                                     Dots[0].transform.position = BottomRight1;
+                                                     Available[3] = true;
+                                                 }
+                                                 break;
+                                         }
 
+
+                                         int randnum1 = UnityEngine.Random.Range(0, 3);
+                                         switch (randnum1)
+                                         {
+                                             case 0:
+                                                 if (Available[0] == false)
+                                                 {
+                                                     Dots[1].transform.position = TopRight1;
+                                                     Available[0] = true;
+                                                 }
+                                                 break;
+                                             case 1:
+                                                 if (Available[1] == false)
+                                                 {
+                                                     Dots[1].transform.position = BottomLeft1;
+                                                     Available[1] = true;
+                                                 }
+                                                 break;
+                                             case 2:
+                                                 if (Available[2] == false)
+                                                 {
+                                                     Dots[1].transform.position = TopLeft1;
+                                                     Available[2] = true;
+                                                 }
+                                                 break;
+                                             case 3:
+                                                 if (Available[3] == false)
+                                                 {
+                                                     Dots[1].transform.position = BottomRight1;
+                                                     Available[3] = true;
+                                                 }
+                                                 break;
+                                         }
+
+
+                                         int randnum2 = UnityEngine.Random.Range(0, 3);
+                                         switch (randnum2)
+                                         {
+                                             case 0:
+                                                 if (Available[0] == false)
+                                                 {
+                                                     Dots[2].transform.position = TopRight1;
+                                                     Available[0] = true;
+                                                 }
+                                                 break;
+                                             case 1:
+                                                 if (Available[1] == false)
+                                                 {
+                                                     Dots[2].transform.position = BottomLeft1;
+                                                     Available[1] = true;
+                                                 }
+                                                 break;
+                                             case 2:
+                                                 if (Available[2] == false)
+                                                 {
+                                                     Dots[2].transform.position = TopLeft1;
+                                                     Available[2] = true;
+                                                 }
+                                                 break;
+                                             case 3:
+                                                 if (Available[3] == false)
+                                                 {
+                                                     Dots[2].transform.position = BottomRight1;
+                                                     Available[3] = true;
+                                                 }
+                                                 break;
+                                         }
+
+
+                                         int randnum3 = UnityEngine.Random.Range(0, 3);
+                                         switch (randnum3)
+                                         {
+                                             case 0:
+                                                 if (Available[0] == false)
+                                                 {
+                                                     Dots[3].transform.position = TopRight1;
+                                                     Available[0] = true;
+                                                 }
+                                                 break;
+                                             case 1:
+                                                 if (Available[1] == false)
+                                                 {
+                                                     Dots[3].transform.position = BottomLeft1;
+                                                     Available[1] = true;
+                                                 }
+                                                 break;
+                                             case 2:
+                                                 if (Available[2] == false)
+                                                 {
+                                                     Dots[3].transform.position = TopLeft1;
+                                                     Available[2] = true;
+                                                 }
+                                                 break;
+                                             case 3:
+                                                 if (Available[3] == false)
+                                                 {
+                                                     Dots[3].transform.position = BottomRight1;
+                                                     Available[3] = true;
+                                                 }
+                                                 break;
+                                         }
+                                     
+                                 
                                 }
 
                             }
@@ -474,17 +739,17 @@ public class TwoByTwoUpdated : MonoBehaviour
 
                                     switch (hit.collider.name)
                                     {
-                                        case "Dot02":
+                                        case "Red":
                                             Vector3[] EndingPos = new Vector3[2];
                                             EndingPos[1] = new Vector3(Axis, 0, 0);
                                             Line[i].SetPositions(EndingPos);
                                             break;
-                                        case "Dot04":
+                                        case "Blue":
                                             Vector3[] EndingPos1 = new Vector3[2];
                                             EndingPos1[1] = new Vector3(Axis, -Axis, 0);
                                             Line[i].SetPositions(EndingPos1);
                                             break;
-                                        case "Dot03":
+                                        case "Green":
                                             Vector3[] EndingPos2 = new Vector3[2];
                                             EndingPos2[1] = new Vector3(0, -Axis, 0);
                                             Line[i].SetPositions(EndingPos2);
@@ -505,17 +770,17 @@ public class TwoByTwoUpdated : MonoBehaviour
                                     }
                                     switch (hit.collider.name)
                                     {
-                                        case "Dot01":
+                                        case "Yellow":
                                             Vector3[] EndingPos = new Vector3[2];
                                             EndingPos[1] = new Vector3(-Axis, 0, 0);
                                             Line[i].SetPositions(EndingPos);
                                             break;
-                                        case "Dot03":
+                                        case "Green":
                                             Vector3[] EndingPos2 = new Vector3[2];
                                             EndingPos2[1] = new Vector3(-Axis, -Axis, 0);
                                             Line[i].SetPositions(EndingPos2);
                                             break;
-                                        case "Dot04":
+                                        case "Blue":
                                             Vector3[] EndingPos3 = new Vector3[2];
                                             EndingPos3[1] = new Vector3(0, -Axis, 0);
                                             Line[i].SetPositions(EndingPos3);
@@ -536,17 +801,17 @@ public class TwoByTwoUpdated : MonoBehaviour
                                     }
                                     switch (hit.collider.name)
                                     {
-                                        case "Dot02":
+                                        case "Red":
                                             Vector3[] EndingPos7 = new Vector3[2];
                                             EndingPos7[1] = new Vector3(Axis, Axis, 0);
                                             Line[i].SetPositions(EndingPos7);
                                             break;
-                                        case "Dot04":
+                                        case "Blue":
                                             Vector3[] EndingPos6 = new Vector3[2];
                                             EndingPos6[1] = new Vector3(Axis, 0, 0);
                                             Line[i].SetPositions(EndingPos6);
                                             break;
-                                        case "Dot01":
+                                        case "Yellow":
                                             Vector3[] EndingPos5 = new Vector3[2];
                                             EndingPos5[1] = new Vector3(0, Axis, 0);
                                             Line[i].SetPositions(EndingPos5);
@@ -567,17 +832,17 @@ public class TwoByTwoUpdated : MonoBehaviour
                                     }
                                     switch (hit.collider.name)
                                     {
-                                        case "Dot01":
+                                        case "Yellow":
                                             Vector3[] EndingPos7 = new Vector3[2];
                                             EndingPos7[1] = new Vector3(-Axis, Axis, 0);
                                             Line[i].SetPositions(EndingPos7);
                                             break;
-                                        case "Dot02":
+                                        case "Red":
                                             Vector3[] EndingPos = new Vector3[2];
                                             EndingPos[1] = new Vector3(0, Axis, 0);
                                             Line[i].SetPositions(EndingPos);
                                             break;
-                                        case "Dot03":
+                                        case "Green":
                                             Vector3[] EndingPos1 = new Vector3[2];
                                             EndingPos1[1] = new Vector3(-Axis, 0, 0);
                                             Line[i].SetPositions(EndingPos1);
