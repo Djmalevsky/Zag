@@ -176,6 +176,12 @@ public class ExampleClass : MonoBehaviour
             GameObject.Find("Main Camera").GetComponent<TwoByTwo>().EndingDotAI = "";
             GameObject.Find("Main Camera").GetComponent<TwoByTwo>().HasDrawnLine = false;
         }
+        if (GameObject.Find("Main Camera").GetComponent<TwoByTwoUpdated>() != null)
+        {
+            GameObject.Find("Main Camera").GetComponent<TwoByTwoUpdated>().pp++;
+            GameObject.Find("Main Camera").GetComponent<TwoByTwoUpdated>().EndingDotAI = "";
+            GameObject.Find("Main Camera").GetComponent<TwoByTwoUpdated>().HasDrawnLine = false;
+        }
         //   GameObject.Find("Main Camera").GetComponent<TestScript>().pp();
         //   GameObject.Find("Main Camera").GetComponent<TouchScreenMode>().pp++;
         //  GameObject.Find("Main Camera").GetComponent<TouchScreenMode>().EndingDotAI = "";

@@ -64,6 +64,8 @@
     <Compile Include="Assets\Scripts\TestScript.cs" />
     <Compile Include="Assets\Scripts\AIgenerated.cs" />
     <Compile Include="Assets\Scripts\TwoByTwo.cs" />
+    <Compile Include="Assets\TwoByTwoUpdated.cs" />
+    <Compile Include="Assets\AIgeneratedColor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
