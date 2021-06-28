@@ -20,10 +20,10 @@ public class TouchScreenMode : MonoBehaviour
     public bool[] isLineActive;
     public bool isOnelineActive = false;
     bool HasPlaced = false;
-    float CloseXAxis = 2;
-    float FarXAxis = 4;
-    float CloseYAxis = 3;
-    float FarYAxis = 6;
+    public float CloseXAxis = 2;
+    public float FarXAxis = 4;
+    public float CloseYAxis = 3;
+    public float FarYAxis = 6;
     public int pp = 0;
     int sec = 3;
     int PlayerCount = 0;
@@ -43,7 +43,7 @@ public class TouchScreenMode : MonoBehaviour
         IsAIGameState = true;
         EndingDots = new string[300];
         AI.pp();
-        WhatIsGoingOn.text = "Generating Lines";
+        WhatIsGoingOn.text = "Round 1";
         TheInstructions = new string[300];
         for(int p = 0; p < AI.Instruction.Length; p++)
         {
@@ -440,7 +440,7 @@ public class TouchScreenMode : MonoBehaviour
                 {
                     HasDrawnLine = true;
                     IsAIGameState = false;
-                    WhatIsGoingOn.text = "Draw Lines!";
+                    WhatIsGoingOn.text = "Begin!";
 
                     /* for (int a = 0; a < Line.Length; a++)
                      {
@@ -608,6 +608,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot04")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -620,6 +621,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot05")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -632,6 +634,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot06")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -644,6 +647,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot08")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -658,6 +662,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot01")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -670,6 +675,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot03")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -682,6 +688,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot04")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -694,6 +701,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot05")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -706,6 +714,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot06")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -718,6 +727,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot07")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -730,6 +740,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot09")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -744,6 +755,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot02")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -756,6 +768,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot04")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -768,6 +781,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot05")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -780,6 +794,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot06")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -792,6 +807,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot08")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -806,6 +822,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot01")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -818,6 +835,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot02")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -830,6 +848,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot03")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -842,6 +861,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot05")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -854,6 +874,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot07")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -866,6 +887,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot08")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -878,6 +900,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot09")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -892,6 +915,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot01")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -904,6 +928,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot02")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -916,6 +941,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot03")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -928,6 +954,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot04")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -940,6 +967,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot06")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -952,6 +980,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot07")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -964,6 +993,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot02")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -976,6 +1006,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot09")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -990,6 +1021,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot01")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -1002,6 +1034,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot02")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -1014,6 +1047,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot03")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -1026,6 +1060,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot05")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -1038,6 +1073,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot07")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -1050,6 +1086,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot08")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -1062,6 +1099,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot09")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -1076,6 +1114,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot02")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -1088,6 +1127,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot04")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -1100,6 +1140,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot05")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -1112,6 +1153,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot06")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -1124,6 +1166,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot08")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -1138,6 +1181,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot01")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -1150,6 +1194,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot03")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -1162,6 +1207,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot04")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -1174,6 +1220,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot05")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -1186,6 +1233,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot06")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -1198,6 +1246,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot07")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -1210,6 +1259,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot09")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -1224,6 +1274,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot02")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -1236,6 +1287,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot04")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -1248,6 +1300,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot05")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -1260,6 +1313,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot06")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -1272,6 +1326,7 @@ public class TouchScreenMode : MonoBehaviour
                                             if (EndingDots[PlayerCount] != "Dot08")
                                             {
                                                 EndCondition.SetActive(true);
+                                                EndGame = true;
                                             }
                                             else
                                             {
@@ -1284,7 +1339,7 @@ public class TouchScreenMode : MonoBehaviour
                                 if(PlayerCount >= LinesAtATime * Round)
                                 {
                                   //  AI.pp();
-                                    WhatIsGoingOn.text = "Generting Lines";
+                                    
                                     IsAIGameState = true;
                                     HasDrawnLine = false;
                                     PlayerCount = 0;
@@ -1295,6 +1350,7 @@ public class TouchScreenMode : MonoBehaviour
                                         TheInstructions[p + 2 * Round] = AI.Instruction[p];
                                     }
                                     Round++;
+                                    WhatIsGoingOn.text = "Round " + Round;
                                     pp = 0;
                                     for(int a = 0; a < Line.Length; a++)
                                     {
