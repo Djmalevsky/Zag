@@ -115,7 +115,7 @@ public class TwoByTwo : MonoBehaviour
                 {
                     case "Dot02":
                         GameObject Clone = Instantiate(PrefabTrail, Line[3].transform);
-                        Clone.GetComponent<ExampleClass>().XDistance = -Axis;
+                        Clone.GetComponent<ExampleClass>().XDistance = 0;
                         Clone.GetComponent<ExampleClass>().YDistance = Axis;
                         break;
                     case "Dot03":
