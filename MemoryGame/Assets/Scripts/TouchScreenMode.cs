@@ -414,7 +414,15 @@ public class TouchScreenMode : MonoBehaviour
     }
     void Update()
     {
-        if(EndGame == true)
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Time.timeScale = 0;
+        }
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            Time.timeScale = 1;
+        }
+        if (EndGame == true)
         {
             return;
         }

@@ -64,7 +64,7 @@ public class TwoByTwoUpdated : MonoBehaviour
                         {
                             Clone.GetComponent<ExampleClass>().XDistance = Axis;
                         }
-                        else if(Dots[0].transform.position.x - Dots[1].transform.position.x == -2)
+                        else if(Dots[0].transform.position.x - Dots[1].transform.position.x == 2)
                         {
                             Clone.GetComponent<ExampleClass>().XDistance = -Axis;
                         }
@@ -91,7 +91,7 @@ public class TwoByTwoUpdated : MonoBehaviour
                         {
                             Clone2.GetComponent<ExampleClass>().XDistance = Axis;
                         }
-                        else if (Dots[0].transform.position.x - Dots[2].transform.position.x == -2)
+                        else if (Dots[0].transform.position.x - Dots[2].transform.position.x == 2)
                         {
                             Clone2.GetComponent<ExampleClass>().XDistance = -Axis;
                         }
@@ -118,7 +118,7 @@ public class TwoByTwoUpdated : MonoBehaviour
                         {
                             Clone3.GetComponent<ExampleClass>().XDistance = Axis;
                         }
-                        else if (Dots[0].transform.position.x - Dots[3].transform.position.x == -2)
+                        else if (Dots[0].transform.position.x - Dots[3].transform.position.x == 2)
                         {
                             Clone3.GetComponent<ExampleClass>().XDistance = -Axis;
                         }
@@ -150,7 +150,7 @@ public class TwoByTwoUpdated : MonoBehaviour
                         {
                             Clone.GetComponent<ExampleClass>().XDistance = Axis;
                         }
-                        else if (Dots[1].transform.position.x - Dots[0].transform.position.x == -2)
+                        else if (Dots[1].transform.position.x - Dots[0].transform.position.x == 2)
                         {
                             Clone.GetComponent<ExampleClass>().XDistance = -Axis;
                         }
@@ -177,7 +177,7 @@ public class TwoByTwoUpdated : MonoBehaviour
                         {
                             Clone2.GetComponent<ExampleClass>().XDistance = Axis;
                         }
-                        else if (Dots[1].transform.position.x - Dots[2].transform.position.x == -2)
+                        else if (Dots[1].transform.position.x - Dots[2].transform.position.x == 2)
                         {
                             Clone2.GetComponent<ExampleClass>().XDistance = -Axis;
                         }
@@ -204,7 +204,7 @@ public class TwoByTwoUpdated : MonoBehaviour
                         {
                             Clone3.GetComponent<ExampleClass>().XDistance = Axis;
                         }
-                        else if (Dots[1].transform.position.x - Dots[3].transform.position.x == -2)
+                        else if (Dots[1].transform.position.x - Dots[3].transform.position.x == 2)
                         {
                             Clone3.GetComponent<ExampleClass>().XDistance = -Axis;
                         }
@@ -232,18 +232,84 @@ public class TwoByTwoUpdated : MonoBehaviour
                 {
                     case "Red":
                         GameObject Clone = Instantiate(PrefabTrail, Line[2].transform);
-                        Clone.GetComponent<ExampleClass>().XDistance = Axis;
-                        Clone.GetComponent<ExampleClass>().YDistance = Axis;
+                        if (Dots[2].transform.position.x - Dots[1].transform.position.x == -2)
+                        {
+                            Clone.GetComponent<ExampleClass>().XDistance = Axis;
+                        }
+                        else if (Dots[2].transform.position.x - Dots[1].transform.position.x == 2)
+                        {
+                            Clone.GetComponent<ExampleClass>().XDistance = -Axis;
+                        }
+                        else if (Dots[2].transform.position.x - Dots[1].transform.position.x == 0)
+                        {
+                            Clone.GetComponent<ExampleClass>().XDistance = 0;
+                        }
+                        if (Dots[2].transform.position.y - Dots[1].transform.position.y == 2)
+                        {
+                            Clone.GetComponent<ExampleClass>().YDistance = -Axis;
+                        }
+                        else if (Dots[2].transform.position.y - Dots[1].transform.position.y == -2)
+                        {
+                            Clone.GetComponent<ExampleClass>().YDistance = Axis;
+                        }
+                        else if (Dots[2].transform.position.y - Dots[1].transform.position.y == 0)
+                        {
+                            Clone.GetComponent<ExampleClass>().YDistance = 0;
+                        }
                         break;
                     case "Yellow":
                         GameObject Clone2 = Instantiate(PrefabTrail, Line[2].transform);
-                        Clone2.GetComponent<ExampleClass>().XDistance = 0;
-                        Clone2.GetComponent<ExampleClass>().YDistance = Axis;
+                        if (Dots[2].transform.position.x - Dots[0].transform.position.x == -2)
+                        {
+                            Clone2.GetComponent<ExampleClass>().XDistance = Axis;
+                        }
+                        else if (Dots[2].transform.position.x - Dots[0].transform.position.x == 2)
+                        {
+                            Clone2.GetComponent<ExampleClass>().XDistance = -Axis;
+                        }
+                        else if (Dots[2].transform.position.x - Dots[0].transform.position.x == 0)
+                        {
+                            Clone2.GetComponent<ExampleClass>().XDistance = 0;
+                        }
+                        if (Dots[2].transform.position.y - Dots[0].transform.position.y == 2)
+                        {
+                            Clone2.GetComponent<ExampleClass>().YDistance = -Axis;
+                        }
+                        else if (Dots[2].transform.position.y - Dots[0].transform.position.y == -2)
+                        {
+                            Clone2.GetComponent<ExampleClass>().YDistance = Axis;
+                        }
+                        else if (Dots[2].transform.position.y - Dots[0].transform.position.y == 0)
+                        {
+                            Clone2.GetComponent<ExampleClass>().YDistance = 0;
+                        }
                         break;
                     case "Blue":
                         GameObject Clone3 = Instantiate(PrefabTrail, Line[2].transform);
-                        Clone3.GetComponent<ExampleClass>().XDistance = Axis;
-                        Clone3.GetComponent<ExampleClass>().YDistance = 0;
+                        if (Dots[2].transform.position.x - Dots[3].transform.position.x == -2)
+                        {
+                            Clone3.GetComponent<ExampleClass>().XDistance = Axis;
+                        }
+                        else if (Dots[2].transform.position.x - Dots[3].transform.position.x == 2)
+                        {
+                            Clone3.GetComponent<ExampleClass>().XDistance = -Axis;
+                        }
+                        else if (Dots[2].transform.position.x - Dots[3].transform.position.x == 0)
+                        {
+                            Clone3.GetComponent<ExampleClass>().XDistance = 0;
+                        }
+                        if (Dots[2].transform.position.y - Dots[3].transform.position.y == 2)
+                        {
+                            Clone3.GetComponent<ExampleClass>().YDistance = -Axis;
+                        }
+                        else if (Dots[2].transform.position.y - Dots[3].transform.position.y == -2)
+                        {
+                            Clone3.GetComponent<ExampleClass>().YDistance = Axis;
+                        }
+                        else if (Dots[2].transform.position.y - Dots[3].transform.position.y == 0)
+                        {
+                            Clone3.GetComponent<ExampleClass>().YDistance = 0;
+                        }
                         break;
                 }
                 break;
@@ -252,18 +318,84 @@ public class TwoByTwoUpdated : MonoBehaviour
                 {
                     case "Red":
                         GameObject Clone = Instantiate(PrefabTrail, Line[3].transform);
-                        Clone.GetComponent<ExampleClass>().XDistance = 0;
-                        Clone.GetComponent<ExampleClass>().YDistance = Axis;
+                        if (Dots[3].transform.position.x - Dots[1].transform.position.x == -2)
+                        {
+                            Clone.GetComponent<ExampleClass>().XDistance = Axis;
+                        }
+                        else if (Dots[3].transform.position.x - Dots[1].transform.position.x == 2)
+                        {
+                            Clone.GetComponent<ExampleClass>().XDistance = -Axis;
+                        }
+                        else if (Dots[3].transform.position.x - Dots[1].transform.position.x == 0)
+                        {
+                            Clone.GetComponent<ExampleClass>().XDistance = 0;
+                        }
+                        if (Dots[3].transform.position.y - Dots[1].transform.position.y == 2)
+                        {
+                            Clone.GetComponent<ExampleClass>().YDistance = -Axis;
+                        }
+                        else if (Dots[3].transform.position.y - Dots[1].transform.position.y == -2)
+                        {
+                            Clone.GetComponent<ExampleClass>().YDistance = Axis;
+                        }
+                        else if (Dots[3].transform.position.y - Dots[1].transform.position.y == 0)
+                        {
+                            Clone.GetComponent<ExampleClass>().YDistance = 0;
+                        }
                         break;
                     case "Green":
                         GameObject Clone2 = Instantiate(PrefabTrail, Line[3].transform);
-                        Clone2.GetComponent<ExampleClass>().XDistance = -Axis;
-                        Clone2.GetComponent<ExampleClass>().YDistance = 0;
+                        if (Dots[3].transform.position.x - Dots[2].transform.position.x == -2)
+                        {
+                            Clone2.GetComponent<ExampleClass>().XDistance = Axis;
+                        }
+                        else if (Dots[3].transform.position.x - Dots[2].transform.position.x == 2)
+                        {
+                            Clone2.GetComponent<ExampleClass>().XDistance = -Axis;
+                        }
+                        else if (Dots[3].transform.position.x - Dots[2].transform.position.x == 0)
+                        {
+                            Clone2.GetComponent<ExampleClass>().XDistance = 0;
+                        }
+                        if (Dots[3].transform.position.y - Dots[2].transform.position.y == 2)
+                        {
+                            Clone2.GetComponent<ExampleClass>().YDistance = -Axis;
+                        }
+                        else if (Dots[3].transform.position.y - Dots[2].transform.position.y == -2)
+                        {
+                            Clone2.GetComponent<ExampleClass>().YDistance = Axis;
+                        }
+                        else if (Dots[3].transform.position.y - Dots[2].transform.position.y == 0)
+                        {
+                            Clone2.GetComponent<ExampleClass>().YDistance = 0;
+                        }
                         break;
                     case "Yellow":
                         GameObject Clone3 = Instantiate(PrefabTrail, Line[3].transform);
-                        Clone3.GetComponent<ExampleClass>().XDistance = -Axis;
-                        Clone3.GetComponent<ExampleClass>().YDistance = Axis;
+                        if (Dots[3].transform.position.x - Dots[0].transform.position.x == -2)
+                        {
+                            Clone3.GetComponent<ExampleClass>().XDistance = Axis;
+                        }
+                        else if (Dots[3].transform.position.x - Dots[0].transform.position.x == 2)
+                        {
+                            Clone3.GetComponent<ExampleClass>().XDistance = -Axis;
+                        }
+                        else if (Dots[3].transform.position.x - Dots[0].transform.position.x == 0)
+                        {
+                            Clone3.GetComponent<ExampleClass>().XDistance = 0;
+                        }
+                        if (Dots[3].transform.position.y - Dots[0].transform.position.y == 2)
+                        {
+                            Clone3.GetComponent<ExampleClass>().YDistance = -Axis;
+                        }
+                        else if (Dots[3].transform.position.y - Dots[0].transform.position.y == -2)
+                        {
+                            Clone3.GetComponent<ExampleClass>().YDistance = Axis;
+                        }
+                        else if (Dots[3].transform.position.y - Dots[0].transform.position.y == 0)
+                        {
+                            Clone3.GetComponent<ExampleClass>().YDistance = 0;
+                        }
                         break;
                 }
                 break;
