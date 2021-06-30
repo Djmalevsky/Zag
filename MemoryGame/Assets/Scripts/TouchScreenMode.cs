@@ -1826,6 +1826,7 @@ public class TouchScreenMode : MonoBehaviour
                                     break;
                             }
                             Handheld.Vibrate();
+                            GameObject.Find("PP").SetActive(true);
                         }
                     }
                 }
