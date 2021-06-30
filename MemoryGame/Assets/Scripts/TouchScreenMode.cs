@@ -35,6 +35,19 @@ public class TouchScreenMode : MonoBehaviour
     public int Round = 1;
     public bool EndGame = false;
     public int LinesAtATime = 2;
+    public GameObject pause;
+    public void activatePause()
+    {
+        pause.SetActive(false);
+        Time.timeScale = 0;
+
+    }
+    public void deactivatePause()
+    {
+        pause.SetActive(true);
+        Time.timeScale = 1;
+
+    }
     public void Awake()
     {
 
