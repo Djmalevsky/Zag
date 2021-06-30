@@ -1825,6 +1825,7 @@ public class TouchScreenMode : MonoBehaviour
                                     //  Line[i].enabled = false;
                                     break;
                             }
+                            Handheld.Vibrate();
                         }
                     }
                 }
