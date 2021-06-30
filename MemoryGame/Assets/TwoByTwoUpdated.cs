@@ -36,9 +36,12 @@ public class TwoByTwoUpdated : MonoBehaviour
     public Vector3 TopRight1 = new Vector3(1, 0, 0);
     public Vector3 TopLeft1 = new Vector3(-1, 0, 0);
     public Vector3 BottomLeft1 = new Vector3(-1, -2, 0);
-    bool Thing = false;
+   // bool Thing = false;
+    public string[] StartingDots;
+    public string CurrentStartingDot = "";
     public void Awake()
     {
+        StartingDots = new string[300];
         isLineActive = new bool[4];
         // Dots = new GameObject[9];
         IsAIGameState = true;
@@ -423,6 +426,7 @@ public class TwoByTwoUpdated : MonoBehaviour
                 {
                     print(pp);
                     StartingDotAI = TheInstructions[pp].Substring(0, TheInstructions[pp].IndexOf("_"));
+                    StartingDots[pp] = StartingDotAI;
                     //print(AI.Instruction[pp].Length);
                     for (int i = TheInstructions[pp].IndexOf("_") + 1; i < TheInstructions[pp].Length; i++)
                     {
@@ -438,9 +442,120 @@ public class TwoByTwoUpdated : MonoBehaviour
                     HasDrawnLine = true;
                     IsAIGameState = false;
                     WhatIsGoingOn.text = "Draw Lines!";
+                    int randnum = UnityEngine.Random.Range(0, 3);
+                    switch (randnum)
+                    {
+                        case 0:
+                            Vector3 temp = Dots[0].transform.position;
+                            Dots[0].transform.position = Dots[1].transform.position;
+                            Dots[1].transform.position = temp;
+                            Vector3 T = Line[0].transform.position;
+                            Line[0].transform.position = Line[1].transform.position;
+                            Line[1].transform.position = T;
+                            break;
+                        case 1:
+                            Vector3 temp2 = Dots[0].transform.position;
+                            Dots[0].transform.position = Dots[2].transform.position;
+                            Dots[2].transform.position = temp2;
+                            Vector3 T1 = Line[0].transform.position;
+                            Line[0].transform.position = Line[2].transform.position;
+                            Line[2].transform.position = T1;
+                            break;
+                        case 2:
+                            Vector3 temp3 = Dots[0].transform.position;
+                            Dots[0].transform.position = Dots[3].transform.position;
+                            Dots[3].transform.position = temp3;
+                            Vector3 T2 = Line[0].transform.position;
+                            Line[0].transform.position = Line[3].transform.position;
+                            Line[3].transform.position = T2;
+                            break;
+                    }
+                    int randnum2 = UnityEngine.Random.Range(0, 3);
+                    switch (randnum2)
+                    {
+                        case 0:
+                            Vector3 temp = Dots[1].transform.position;
+                            Dots[1].transform.position = Dots[0].transform.position;
+                            Dots[0].transform.position = temp;
+                            Vector3 T = Line[1].transform.position;
+                            Line[1].transform.position = Line[0].transform.position;
+                            Line[0].transform.position = T;
+                            break;
+                        case 1:
+                            Vector3 temp2 = Dots[1].transform.position;
+                            Dots[1].transform.position = Dots[2].transform.position;
+                            Dots[2].transform.position = temp2;
+                            Vector3 T2 = Line[1].transform.position;
+                            Line[1].transform.position = Line[2].transform.position;
+                            Line[2].transform.position = T2;
+                            break;
+                        case 2:
+                            Vector3 temp3 = Dots[1].transform.position;
+                            Dots[1].transform.position = Dots[3].transform.position;
+                            Dots[3].transform.position = temp3;
+                            Vector3 T3 = Line[1].transform.position;
+                            Line[1].transform.position = Line[3].transform.position;
+                            Line[3].transform.position = T3;
+                            break;
+                    }
+                    int randnum3 = UnityEngine.Random.Range(0, 3);
+                    switch (randnum3)
+                    {
+                        case 0:
+                            Vector3 temp = Dots[2].transform.position;
+                            Dots[2].transform.position = Dots[1].transform.position;
+                            Dots[1].transform.position = temp;
+                            Vector3 T = Line[2].transform.position;
+                            Line[2].transform.position = Line[1].transform.position;
+                            Line[1].transform.position = T;
+                            break;
+                        case 1:
+                            Vector3 temp2 = Dots[2].transform.position;
+                            Dots[2].transform.position = Dots[0].transform.position;
+                            Dots[0].transform.position = temp2;
+                            Vector3 T1 = Line[2].transform.position;
+                            Line[2].transform.position = Line[0].transform.position;
+                            Line[0].transform.position = T1;
+                            break;
+                        case 2:
+                            Vector3 temp3 = Dots[2].transform.position;
+                            Dots[2].transform.position = Dots[3].transform.position;
+                            Dots[3].transform.position = temp3;
+                            Vector3 T2 = Line[2].transform.position;
+                            Line[2].transform.position = Line[3].transform.position;
+                            Line[3].transform.position = T2;
+                            break;
+                    }
+                    int randnum4 = UnityEngine.Random.Range(0, 3);
+                    switch (randnum4)
+                    {
+                        case 0:
+                            Vector3 temp = Dots[3].transform.position;
+                            Dots[3].transform.position = Dots[1].transform.position;
+                            Dots[1].transform.position = temp;
+                            Vector3 T = Line[3].transform.position;
+                            Line[3].transform.position = Line[1].transform.position;
+                            Line[1].transform.position = T;
+                            break;
+                        case 1:
+                            Vector3 temp2 = Dots[3].transform.position;
+                            Dots[3].transform.position = Dots[2].transform.position;
+                            Dots[2].transform.position = temp2;
+                            Vector3 T1 = Line[3].transform.position;
+                            Line[3].transform.position = Line[2].transform.position;
+                            Line[2].transform.position = T1;
+                            break;
+                        case 2:
+                            Vector3 temp3 = Dots[3].transform.position;
+                            Dots[3].transform.position = Dots[0].transform.position;
+                            Dots[0].transform.position = temp3;
+                            Vector3 T2 = Line[3].transform.position;
+                            Line[3].transform.position = Line[0].transform.position;
+                            Line[0].transform.position = T2;
+                            break;
+                    }
                 }
             }
-
         }
         else if (IsAIGameState == false)
         {
@@ -464,6 +579,7 @@ public class TwoByTwoUpdated : MonoBehaviour
                             Line[0].enabled = true;
                             isLineActive[0] = true;
                             isOnelineActive = true;
+                            CurrentStartingDot = "Yellow";
                             break;
                         case "Red":
                             Vector3[] EndingPos12 = new Vector3[2];
@@ -471,6 +587,7 @@ public class TwoByTwoUpdated : MonoBehaviour
                             Line[1].enabled = true;
                             isLineActive[1] = true;
                             isOnelineActive = true;
+                            CurrentStartingDot = "Red";
                             break;
                         case "Green":
                             Vector3[] EndingPos123 = new Vector3[2];
@@ -478,6 +595,7 @@ public class TwoByTwoUpdated : MonoBehaviour
                             Line[2].enabled = true;
                             isLineActive[2] = true;
                             isOnelineActive = true;
+                            CurrentStartingDot = "Green";
                             break;
                         case "Blue":
                             Vector3[] EndingPos124 = new Vector3[2];
@@ -485,6 +603,7 @@ public class TwoByTwoUpdated : MonoBehaviour
                             Line[3].enabled = true;
                             isLineActive[3] = true;
                             isOnelineActive = true;
+                            CurrentStartingDot = "Blue";
                             break;
                         default:
                             break;
@@ -512,7 +631,7 @@ public class TwoByTwoUpdated : MonoBehaviour
                                     case 0:
                                         if (hit.collider.name == "Red")
                                         {
-                                            if (EndingDots[PlayerCount] != "Red")
+                                            if (EndingDots[PlayerCount] != "Red" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -525,7 +644,7 @@ public class TwoByTwoUpdated : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Blue")
                                         {
-                                            if (EndingDots[PlayerCount] != "Blue")
+                                            if (EndingDots[PlayerCount] != "Blue" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -538,7 +657,7 @@ public class TwoByTwoUpdated : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Green")
                                         {
-                                            if (EndingDots[PlayerCount] != "Green")
+                                            if (EndingDots[PlayerCount] != "Green" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -553,7 +672,7 @@ public class TwoByTwoUpdated : MonoBehaviour
                                     case 1:
                                         if (hit.collider.name == "Yellow")
                                         {
-                                            if (EndingDots[PlayerCount] != "Yellow")
+                                            if (EndingDots[PlayerCount] != "Yellow" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -566,7 +685,7 @@ public class TwoByTwoUpdated : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Green")
                                         {
-                                            if (EndingDots[PlayerCount] != "Green")
+                                            if (EndingDots[PlayerCount] != "Green" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -579,7 +698,7 @@ public class TwoByTwoUpdated : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Blue")
                                         {
-                                            if (EndingDots[PlayerCount] != "Blue")
+                                            if (EndingDots[PlayerCount] != "Blue" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -594,7 +713,7 @@ public class TwoByTwoUpdated : MonoBehaviour
                                     case 2:
                                         if (hit.collider.name == "Red")
                                         {
-                                            if (EndingDots[PlayerCount] != "Red")
+                                            if (EndingDots[PlayerCount] != "Red" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -607,7 +726,7 @@ public class TwoByTwoUpdated : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Blue")
                                         {
-                                            if (EndingDots[PlayerCount] != "Blue")
+                                            if (EndingDots[PlayerCount] != "Blue" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -620,7 +739,7 @@ public class TwoByTwoUpdated : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Yellow")
                                         {
-                                            if (EndingDots[PlayerCount] != "Yellow")
+                                            if (EndingDots[PlayerCount] != "Yellow" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -635,7 +754,7 @@ public class TwoByTwoUpdated : MonoBehaviour
                                     case 3:
                                         if (hit.collider.name == "Yellow")
                                         {
-                                            if (EndingDots[PlayerCount] != "Yellow")
+                                            if (EndingDots[PlayerCount] != "Yellow" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -648,7 +767,7 @@ public class TwoByTwoUpdated : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Red")
                                         {
-                                            if (EndingDots[PlayerCount] != "Red")
+                                            if (EndingDots[PlayerCount] != "Red" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -661,7 +780,7 @@ public class TwoByTwoUpdated : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Green")
                                         {
-                                            if (EndingDots[PlayerCount] != "Green")
+                                            if (EndingDots[PlayerCount] != "Green" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -692,119 +811,6 @@ public class TwoByTwoUpdated : MonoBehaviour
                                     for (int a = 0; a < Line.Length; a++)
                                     {
                                         Line[a].enabled = false;
-                                    }
-
-                                    int randnum = UnityEngine.Random.Range(0, 3);
-                                    switch (randnum)
-                                    {
-                                        case 0:
-                                            Vector3 temp = Dots[0].transform.position;
-                                            Dots[0].transform.position = Dots[1].transform.position;
-                                            Dots[1].transform.position = temp;
-                                            Vector3 T = Line[0].transform.position;
-                                            Line[0].transform.position = Line[1].transform.position;
-                                            Line[1].transform.position = T;
-                                            break;
-                                        case 1:
-                                            Vector3 temp2 = Dots[0].transform.position;
-                                            Dots[0].transform.position = Dots[2].transform.position;
-                                            Dots[2].transform.position = temp2;
-                                            Vector3 T1 = Line[0].transform.position;
-                                            Line[0].transform.position = Line[2].transform.position;
-                                            Line[2].transform.position = T1;
-                                            break;
-                                        case 2:
-                                            Vector3 temp3 = Dots[0].transform.position;
-                                            Dots[0].transform.position = Dots[3].transform.position;
-                                            Dots[3].transform.position = temp3;
-                                            Vector3 T2 = Line[0].transform.position;
-                                            Line[0].transform.position = Line[3].transform.position;
-                                            Line[3].transform.position = T2;
-                                            break;
-                                    }
-                                    int randnum2 = UnityEngine.Random.Range(0, 3);
-                                    switch (randnum2)
-                                    {
-                                        case 0:
-                                            Vector3 temp = Dots[1].transform.position;
-                                            Dots[1].transform.position = Dots[0].transform.position;
-                                            Dots[0].transform.position = temp;
-                                            Vector3 T = Line[1].transform.position;
-                                            Line[1].transform.position = Line[0].transform.position;
-                                            Line[0].transform.position = T;
-                                            break;
-                                        case 1:
-                                            Vector3 temp2 = Dots[1].transform.position;
-                                            Dots[1].transform.position = Dots[2].transform.position;
-                                            Dots[2].transform.position = temp2;
-                                            Vector3 T2 = Line[1].transform.position;
-                                            Line[1].transform.position = Line[2].transform.position;
-                                            Line[2].transform.position = T2;
-                                            break;
-                                        case 2:
-                                            Vector3 temp3 = Dots[1].transform.position;
-                                            Dots[1].transform.position = Dots[3].transform.position;
-                                            Dots[3].transform.position = temp3;
-                                            Vector3 T3 = Line[1].transform.position;
-                                            Line[1].transform.position = Line[3].transform.position;
-                                            Line[3].transform.position = T3;
-                                            break;
-                                    }
-                                    int randnum3 = UnityEngine.Random.Range(0, 3);
-                                    switch (randnum3)
-                                    {
-                                        case 0:
-                                            Vector3 temp = Dots[2].transform.position;
-                                            Dots[2].transform.position = Dots[1].transform.position;
-                                            Dots[1].transform.position = temp;
-                                            Vector3 T = Line[2].transform.position;
-                                            Line[2].transform.position = Line[1].transform.position;
-                                            Line[1].transform.position = T;
-                                            break;
-                                        case 1:
-                                            Vector3 temp2 = Dots[2].transform.position;
-                                            Dots[2].transform.position = Dots[0].transform.position;
-                                            Dots[0].transform.position = temp2;
-                                            Vector3 T1 = Line[2].transform.position;
-                                            Line[2].transform.position = Line[0].transform.position;
-                                            Line[0].transform.position = T1;
-                                            break;
-                                        case 2:
-                                            Vector3 temp3 = Dots[2].transform.position;
-                                            Dots[2].transform.position = Dots[3].transform.position;
-                                            Dots[3].transform.position = temp3;
-                                            Vector3 T2 = Line[2].transform.position;
-                                            Line[2].transform.position = Line[3].transform.position;
-                                            Line[3].transform.position = T2;
-                                            break;
-                                    }
-                                    int randnum4 = UnityEngine.Random.Range(0, 3);
-                                    switch (randnum4)
-                                    {
-                                        case 0:
-                                            Vector3 temp = Dots[3].transform.position;
-                                            Dots[3].transform.position = Dots[1].transform.position;
-                                            Dots[1].transform.position = temp;
-                                            Vector3 T = Line[3].transform.position;
-                                            Line[3].transform.position = Line[1].transform.position;
-                                            Line[1].transform.position = T;
-                                            break;
-                                        case 1:
-                                            Vector3 temp2 = Dots[3].transform.position;
-                                            Dots[3].transform.position = Dots[2].transform.position;
-                                            Dots[2].transform.position = temp2;
-                                            Vector3 T1 = Line[3].transform.position;
-                                            Line[3].transform.position = Line[2].transform.position;
-                                            Line[2].transform.position = T1;
-                                            break;
-                                        case 2:
-                                            Vector3 temp3 = Dots[3].transform.position;
-                                            Dots[3].transform.position = Dots[0].transform.position;
-                                            Dots[0].transform.position = temp3;
-                                            Vector3 T2 = Line[3].transform.position;
-                                            Line[3].transform.position = Line[0].transform.position;
-                                            Line[0].transform.position = T2;
-                                            break;
                                     }
                                 }
 

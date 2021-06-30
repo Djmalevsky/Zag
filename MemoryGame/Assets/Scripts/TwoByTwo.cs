@@ -26,6 +26,8 @@ public class TwoByTwo : MonoBehaviour
     int PlayerCount = 0;
     public GameObject EndCondition;
     public string[] EndingDots;
+    public string[] StartingDots;
+    public string CurrentStartingDot = "";
     public GameObject PrefabTrail;
     public Text WhatIsGoingOn;
     public string[] TheInstructions;
@@ -38,6 +40,7 @@ public class TwoByTwo : MonoBehaviour
         // Dots = new GameObject[9];
         IsAIGameState = true;
         EndingDots = new string[300];
+        StartingDots = new string[300];
         AI.pp();
         WhatIsGoingOn.text = "Generating Lines";
         TheInstructions = new string[300];
@@ -154,7 +157,8 @@ public class TwoByTwo : MonoBehaviour
                 {
                     print(pp);
                     StartingDotAI = TheInstructions[pp].Substring(0, TheInstructions[pp].IndexOf("_"));
-                    //print(AI.Instruction[pp].Length);
+                    StartingDots[pp] = StartingDotAI;
+                        //print(AI.Instruction[pp].Length);
                     for (int i = 6; i < TheInstructions[pp].Length; i++)
                     {
                         EndingDotAI += TheInstructions[pp][i];
@@ -201,6 +205,7 @@ public class TwoByTwo : MonoBehaviour
                             Line[0].enabled = true;
                             isLineActive[0] = true;
                             isOnelineActive = true;
+                            CurrentStartingDot = "Dot01";
                             break;
                         case "Dot02":
                             Vector3[] EndingPos12 = new Vector3[2];
@@ -208,6 +213,7 @@ public class TwoByTwo : MonoBehaviour
                             Line[1].enabled = true;
                             isLineActive[1] = true;
                             isOnelineActive = true;
+                            CurrentStartingDot = "Dot02";
                             break;
                         case "Dot03":
                             Vector3[] EndingPos123 = new Vector3[2];
@@ -215,6 +221,7 @@ public class TwoByTwo : MonoBehaviour
                             Line[2].enabled = true;
                             isLineActive[2] = true;
                             isOnelineActive = true;
+                            CurrentStartingDot = "Dot03";
                             break;
                         case "Dot04":
                             Vector3[] EndingPos124 = new Vector3[2];
@@ -222,6 +229,7 @@ public class TwoByTwo : MonoBehaviour
                             Line[3].enabled = true;
                             isLineActive[3] = true;
                             isOnelineActive = true;
+                            CurrentStartingDot = "Dot04";
                             break;
                         default:
                             break;
@@ -249,7 +257,7 @@ public class TwoByTwo : MonoBehaviour
                                     case 0:
                                         if (hit.collider.name == "Dot02")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot02")
+                                            if (EndingDots[PlayerCount] != "Dot02" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -262,7 +270,7 @@ public class TwoByTwo : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot04")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot04")
+                                            if (EndingDots[PlayerCount] != "Dot04" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -275,7 +283,7 @@ public class TwoByTwo : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot03")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot03")
+                                            if (EndingDots[PlayerCount] != "Dot03" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -290,7 +298,7 @@ public class TwoByTwo : MonoBehaviour
                                     case 1:
                                         if (hit.collider.name == "Dot01")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot01")
+                                            if (EndingDots[PlayerCount] != "Dot01" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -303,7 +311,7 @@ public class TwoByTwo : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot03")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot03")
+                                            if (EndingDots[PlayerCount] != "Dot03" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -316,7 +324,7 @@ public class TwoByTwo : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot04")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot04")
+                                            if (EndingDots[PlayerCount] != "Dot04" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -331,7 +339,7 @@ public class TwoByTwo : MonoBehaviour
                                     case 2:
                                         if (hit.collider.name == "Dot02")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot02")
+                                            if (EndingDots[PlayerCount] != "Dot02" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -344,7 +352,7 @@ public class TwoByTwo : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot04")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot04")
+                                            if (EndingDots[PlayerCount] != "Dot04" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -357,7 +365,7 @@ public class TwoByTwo : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot01")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot01")
+                                            if (EndingDots[PlayerCount] != "Dot01" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -372,7 +380,7 @@ public class TwoByTwo : MonoBehaviour
                                     case 3:
                                         if (hit.collider.name == "Dot01")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot01")
+                                            if (EndingDots[PlayerCount] != "Dot01" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -385,7 +393,7 @@ public class TwoByTwo : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot02")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot02")
+                                            if (EndingDots[PlayerCount] != "Dot02" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -398,7 +406,7 @@ public class TwoByTwo : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot03")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot03")
+                                            if (EndingDots[PlayerCount] != "Dot03" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;

@@ -36,6 +36,8 @@ public class TouchScreenMode : MonoBehaviour
     public bool EndGame = false;
     public int LinesAtATime = 2;
     public GameObject pause;
+    public string[] StartingDots;
+    public string CurrentStartingDot = "";
     public void activatePause()
     {
         pause.SetActive(false);
@@ -50,7 +52,7 @@ public class TouchScreenMode : MonoBehaviour
     }
     public void Awake()
     {
-
+        StartingDots = new string[300];
         isLineActive = new bool[9];
         // Dots = new GameObject[9];
         IsAIGameState = true;
@@ -497,6 +499,7 @@ public class TouchScreenMode : MonoBehaviour
                             Line[0].enabled = true;
                             isLineActive[0] = true;
                             isOnelineActive = true;
+                            CurrentStartingDot = "Dot01";
                             //   currentDot = 0; 
                             //   print("DOT1");
 
@@ -507,6 +510,8 @@ public class TouchScreenMode : MonoBehaviour
                             Line[1].enabled = true;
                             isLineActive[1] = true;
                             isOnelineActive = true;
+                            CurrentStartingDot = "Dot02";
+
                             //   currentDot = 1;
 
                             //   print("DOT2");
@@ -518,6 +523,8 @@ public class TouchScreenMode : MonoBehaviour
                             Line[2].enabled = true;
                             isLineActive[2] = true;
                             isOnelineActive = true;
+                            CurrentStartingDot = "Dot03";
+
                             //  currentDot = 2;
 
                             //  print("DOT3");
@@ -529,6 +536,8 @@ public class TouchScreenMode : MonoBehaviour
                             Line[3].enabled = true;
                             isLineActive[3] = true;
                             isOnelineActive = true;
+                            CurrentStartingDot = "Dot04";
+
                             //  print("DOT4");
                             //  currentDot = 3;
 
@@ -541,6 +550,8 @@ public class TouchScreenMode : MonoBehaviour
                             Line[4].enabled = true;
                             isLineActive[4] = true;
                             isOnelineActive = true;
+                            CurrentStartingDot = "Dot05";
+
                             // currentDot = 4;
 
                             //  print("DOT5");
@@ -552,6 +563,8 @@ public class TouchScreenMode : MonoBehaviour
                             Line[5].enabled = true;
                             isLineActive[5] = true;
                             isOnelineActive = true;
+                            CurrentStartingDot = "Dot06";
+
                             //  currentDot = 5;
 
                             //      print("DOT6");
@@ -563,6 +576,8 @@ public class TouchScreenMode : MonoBehaviour
                             Line[6].enabled = true;
                             isLineActive[6] = true;
                             isOnelineActive = true;
+                            CurrentStartingDot = "Dot07";
+
                             //    print("DOT7");
                             //  currentDot = 6;
 
@@ -573,6 +588,8 @@ public class TouchScreenMode : MonoBehaviour
                             Line[7].enabled = true;
                             isLineActive[7] = true;
                             isOnelineActive = true;
+                            CurrentStartingDot = "Dot08";
+
                             //   print("DOT8");
                             // currentDot = 7;
 
@@ -583,6 +600,8 @@ public class TouchScreenMode : MonoBehaviour
                             Line[8].enabled = true;
                             isLineActive[8] = true;
                             isOnelineActive = true;
+                            CurrentStartingDot = "Dot09";
+
                             //   print("DOT9");
                             //  currentDot = 8;
 
@@ -613,7 +632,7 @@ public class TouchScreenMode : MonoBehaviour
                                     case 0:
                                         if (hit.collider.name == "Dot02")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot02")
+                                            if (EndingDots[PlayerCount] != "Dot02" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -626,7 +645,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot04")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot04")
+                                            if (EndingDots[PlayerCount] != "Dot04" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -639,7 +658,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot05")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot05")
+                                            if (EndingDots[PlayerCount] != "Dot05" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -652,7 +671,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot06")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot06")
+                                            if (EndingDots[PlayerCount] != "Dot06" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -665,7 +684,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot08")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot08")
+                                            if (EndingDots[PlayerCount] != "Dot08" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -680,7 +699,7 @@ public class TouchScreenMode : MonoBehaviour
                                     case 1:
                                         if (hit.collider.name == "Dot01")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot01")
+                                            if (EndingDots[PlayerCount] != "Dot01" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -693,7 +712,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot03")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot03")
+                                            if (EndingDots[PlayerCount] != "Dot03" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -706,7 +725,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot04")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot04")
+                                            if (EndingDots[PlayerCount] != "Dot04" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -719,7 +738,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot05")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot05")
+                                            if (EndingDots[PlayerCount] != "Dot05" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -732,7 +751,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot06")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot06")
+                                            if (EndingDots[PlayerCount] != "Dot06" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -745,7 +764,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot07")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot07")
+                                            if (EndingDots[PlayerCount] != "Dot07" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -758,7 +777,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot09")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot09")
+                                            if (EndingDots[PlayerCount] != "Dot09" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -773,7 +792,7 @@ public class TouchScreenMode : MonoBehaviour
                                     case 2:
                                         if (hit.collider.name == "Dot02")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot02")
+                                            if (EndingDots[PlayerCount] != "Dot02" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -786,7 +805,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot04")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot04")
+                                            if (EndingDots[PlayerCount] != "Dot04" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -799,7 +818,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot05")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot05")
+                                            if (EndingDots[PlayerCount] != "Dot05" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -812,7 +831,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot06")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot06")
+                                            if (EndingDots[PlayerCount] != "Dot06" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -825,7 +844,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot08")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot08")
+                                            if (EndingDots[PlayerCount] != "Dot08" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -840,7 +859,7 @@ public class TouchScreenMode : MonoBehaviour
                                     case 3:
                                         if (hit.collider.name == "Dot01")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot01")
+                                            if (EndingDots[PlayerCount] != "Dot01" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -853,7 +872,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot02")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot02")
+                                            if (EndingDots[PlayerCount] != "Dot02" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -866,7 +885,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot03")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot03")
+                                            if (EndingDots[PlayerCount] != "Dot03" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -879,7 +898,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot05")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot05")
+                                            if (EndingDots[PlayerCount] != "Dot05" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -892,7 +911,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot07")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot07")
+                                            if (EndingDots[PlayerCount] != "Dot07" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -905,7 +924,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot08")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot08")
+                                            if (EndingDots[PlayerCount] != "Dot08" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -918,7 +937,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot09")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot09")
+                                            if (EndingDots[PlayerCount] != "Dot09" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -933,7 +952,7 @@ public class TouchScreenMode : MonoBehaviour
                                     case 4:
                                         if (hit.collider.name == "Dot01")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot01")
+                                            if (EndingDots[PlayerCount] != "Dot01" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -946,7 +965,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot02")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot02")
+                                            if (EndingDots[PlayerCount] != "Dot02" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -959,7 +978,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot03")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot03")
+                                            if (EndingDots[PlayerCount] != "Dot03" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -972,7 +991,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot04")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot04")
+                                            if (EndingDots[PlayerCount] != "Dot04" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -985,7 +1004,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot06")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot06")
+                                            if (EndingDots[PlayerCount] != "Dot06" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -998,7 +1017,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot07")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot07")
+                                            if (EndingDots[PlayerCount] != "Dot07" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -1011,7 +1030,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot08")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot02")
+                                            if (EndingDots[PlayerCount] != "Dot02" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -1024,7 +1043,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot09")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot09")
+                                            if (EndingDots[PlayerCount] != "Dot09" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -1039,7 +1058,7 @@ public class TouchScreenMode : MonoBehaviour
                                     case 5:
                                         if (hit.collider.name == "Dot01")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot01")
+                                            if (EndingDots[PlayerCount] != "Dot01" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -1052,7 +1071,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot02")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot02")
+                                            if (EndingDots[PlayerCount] != "Dot02" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -1065,7 +1084,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot03")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot03")
+                                            if (EndingDots[PlayerCount] != "Dot03" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -1078,7 +1097,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot05")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot05")
+                                            if (EndingDots[PlayerCount] != "Dot05" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -1091,7 +1110,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot07")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot07")
+                                            if (EndingDots[PlayerCount] != "Dot07" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -1104,7 +1123,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot08")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot08")
+                                            if (EndingDots[PlayerCount] != "Dot08" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -1117,7 +1136,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot09")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot09")
+                                            if (EndingDots[PlayerCount] != "Dot09" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -1132,7 +1151,7 @@ public class TouchScreenMode : MonoBehaviour
                                     case 6:
                                         if (hit.collider.name == "Dot02")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot02")
+                                            if (EndingDots[PlayerCount] != "Dot02" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -1145,7 +1164,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot04")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot04")
+                                            if (EndingDots[PlayerCount] != "Dot04" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -1158,7 +1177,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot05")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot05")
+                                            if (EndingDots[PlayerCount] != "Dot05" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -1171,7 +1190,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot06")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot06")
+                                            if (EndingDots[PlayerCount] != "Dot06" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -1184,7 +1203,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot08")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot08")
+                                            if (EndingDots[PlayerCount] != "Dot08" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -1199,7 +1218,7 @@ public class TouchScreenMode : MonoBehaviour
                                     case 7:
                                         if (hit.collider.name == "Dot01")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot01")
+                                            if (EndingDots[PlayerCount] != "Dot01" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -1212,7 +1231,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot03")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot03")
+                                            if (EndingDots[PlayerCount] != "Dot03" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -1225,7 +1244,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot04")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot04")
+                                            if (EndingDots[PlayerCount] != "Dot04" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -1238,7 +1257,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot05")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot05")
+                                            if (EndingDots[PlayerCount] != "Dot05" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -1251,7 +1270,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot06")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot06")
+                                            if (EndingDots[PlayerCount] != "Dot06" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -1264,7 +1283,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot07")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot07")
+                                            if (EndingDots[PlayerCount] != "Dot07" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -1277,7 +1296,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot09")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot09")
+                                            if (EndingDots[PlayerCount] != "Dot09" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -1292,7 +1311,7 @@ public class TouchScreenMode : MonoBehaviour
                                     case 8:
                                         if (hit.collider.name == "Dot02")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot02")
+                                            if (EndingDots[PlayerCount] != "Dot02" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -1305,7 +1324,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot04")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot04")
+                                            if (EndingDots[PlayerCount] != "Dot04" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -1318,7 +1337,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot05")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot05")
+                                            if (EndingDots[PlayerCount] != "Dot05" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -1331,7 +1350,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot06")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot06")
+                                            if (EndingDots[PlayerCount] != "Dot06" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
@@ -1344,7 +1363,7 @@ public class TouchScreenMode : MonoBehaviour
                                         }
                                         else if (hit.collider.name == "Dot08")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot08")
+                                            if (EndingDots[PlayerCount] != "Dot08" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
