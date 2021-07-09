@@ -574,36 +574,48 @@ public class TwoByTwoUpdated : MonoBehaviour
                     switch (hit.collider.name)
                     {
                         case "Yellow":
-                            Vector3[] EndingPos1 = new Vector3[2];
-                            Line[0].SetPositions(EndingPos1);
-                            Line[0].enabled = true;
-                            isLineActive[0] = true;
-                            isOnelineActive = true;
-                            CurrentStartingDot = "Yellow";
+                            if (StartingDots[PlayerCount] == "Yellow")
+                            {
+                                Vector3[] EndingPos1 = new Vector3[2];
+                                Line[0].SetPositions(EndingPos1);
+                                Line[0].enabled = true;
+                                isLineActive[0] = true;
+                                isOnelineActive = true;
+                                CurrentStartingDot = "Yellow";
+                            }
                             break;
                         case "Red":
-                            Vector3[] EndingPos12 = new Vector3[2];
-                            Line[1].SetPositions(EndingPos12);
-                            Line[1].enabled = true;
-                            isLineActive[1] = true;
-                            isOnelineActive = true;
-                            CurrentStartingDot = "Red";
+                            if (StartingDots[PlayerCount] == "Red")
+                            {
+                                Vector3[] EndingPos12 = new Vector3[2];
+                                Line[1].SetPositions(EndingPos12);
+                                Line[1].enabled = true;
+                                isLineActive[1] = true;
+                                isOnelineActive = true;
+                                CurrentStartingDot = "Red";
+                            }
                             break;
                         case "Green":
-                            Vector3[] EndingPos123 = new Vector3[2];
-                            Line[2].SetPositions(EndingPos123);
-                            Line[2].enabled = true;
-                            isLineActive[2] = true;
-                            isOnelineActive = true;
-                            CurrentStartingDot = "Green";
+                            if (StartingDots[PlayerCount] == "Green")
+                            {
+                                Vector3[] EndingPos123 = new Vector3[2];
+                                Line[2].SetPositions(EndingPos123);
+                                Line[2].enabled = true;
+                                isLineActive[2] = true;
+                                isOnelineActive = true;
+                                CurrentStartingDot = "Green";
+                            }
                             break;
                         case "Blue":
-                            Vector3[] EndingPos124 = new Vector3[2];
-                            Line[3].SetPositions(EndingPos124);
-                            Line[3].enabled = true;
-                            isLineActive[3] = true;
-                            isOnelineActive = true;
-                            CurrentStartingDot = "Blue";
+                            if (StartingDots[PlayerCount] == "Blue")
+                            {
+                                Vector3[] EndingPos124 = new Vector3[2];
+                                Line[3].SetPositions(EndingPos124);
+                                Line[3].enabled = true;
+                                isLineActive[3] = true;
+                                isOnelineActive = true;
+                                CurrentStartingDot = "Blue";
+                            }
                             break;
                         default:
                             break;

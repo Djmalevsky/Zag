@@ -274,6 +274,8 @@ MonoBehaviour:
   pp: 0
   EndCondition: {fileID: 1535853480}
   EndingDots: []
+  StartingDots: []
+  CurrentStartingDot: 
   PrefabTrail: {fileID: 4005819449208593958, guid: 09a0aa43b8d927741bee069626f21983, type: 3}
   WhatIsGoingOn: {fileID: 1941291955}
   TheInstructions: []
@@ -537,7 +539,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 304201279}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 413431400}
@@ -1851,7 +1853,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1779217958}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 233558893}

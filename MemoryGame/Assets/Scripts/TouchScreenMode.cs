@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TouchScreenMode : MonoBehaviour
@@ -38,6 +39,10 @@ public class TouchScreenMode : MonoBehaviour
     public GameObject pause;
     public string[] StartingDots;
     public string CurrentStartingDot = "";
+    public void GoHome()
+    {
+        SceneManager.LoadScene(0);
+    }
     public void activatePause()
     {
         pause.SetActive(false);
@@ -447,15 +452,15 @@ public class TouchScreenMode : MonoBehaviour
             {
                 if (pp < AI.Instruction.Length * Round)
                 {
-                    print(pp);
+                   // print(pp);
                     StartingDotAI = TheInstructions[pp].Substring(0, TheInstructions[pp].IndexOf("_"));
-                    //print(AI.Instruction[pp].Length);
+                    StartingDots[pp] = StartingDotAI;
                     for (int i = 6; i < TheInstructions[pp].Length; i++)
                     {
                         EndingDotAI += TheInstructions[pp][i];
                     }
                     EndingDots[pp] = EndingDotAI;
-                    print(EndingDotAI);
+                   // print(EndingDotAI);
                     HasDrawnLine = true;
                     StartCoroutine(WaitThing());
                 }
@@ -484,7 +489,7 @@ public class TouchScreenMode : MonoBehaviour
                     Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
                     RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
-
+                    print(StartingDots[PlayerCount]);
                     if (hit.collider == null)
                     {
                         return;
@@ -492,119 +497,103 @@ public class TouchScreenMode : MonoBehaviour
                     switch (hit.collider.name)
                     {
                         case "Dot01":
-                            //     print("PP");
-
-                            Vector3[] EndingPos1 = new Vector3[2];
-                            Line[0].SetPositions(EndingPos1);
-                            Line[0].enabled = true;
-                            isLineActive[0] = true;
-                            isOnelineActive = true;
-                            CurrentStartingDot = "Dot01";
-                            //   currentDot = 0; 
-                            //   print("DOT1");
-
+                            if (StartingDots[PlayerCount] == "Dot01")
+                            {
+                                Vector3[] EndingPos1 = new Vector3[2];
+                                Line[0].SetPositions(EndingPos1);
+                                Line[0].enabled = true;
+                                isLineActive[0] = true;
+                                isOnelineActive = true;
+                                CurrentStartingDot = "Dot01";
+                            }
                             break;
                         case "Dot02":
-                            Vector3[] EndingPos12 = new Vector3[2];
-                            Line[1].SetPositions(EndingPos12);
-                            Line[1].enabled = true;
-                            isLineActive[1] = true;
-                            isOnelineActive = true;
-                            CurrentStartingDot = "Dot02";
-
-                            //   currentDot = 1;
-
-                            //   print("DOT2");
-
+                            if (StartingDots[PlayerCount] == "Dot02")
+                            {
+                                Vector3[] EndingPos12 = new Vector3[2];
+                                Line[1].SetPositions(EndingPos12);
+                                Line[1].enabled = true;
+                                isLineActive[1] = true;
+                                isOnelineActive = true;
+                                CurrentStartingDot = "Dot02";
+                            }
                             break;
                         case "Dot03":
-                            Vector3[] EndingPos123 = new Vector3[2];
-                            Line[2].SetPositions(EndingPos123);
-                            Line[2].enabled = true;
-                            isLineActive[2] = true;
-                            isOnelineActive = true;
-                            CurrentStartingDot = "Dot03";
-
-                            //  currentDot = 2;
-
-                            //  print("DOT3");
-
+                            if (StartingDots[PlayerCount] == "Dot03")
+                            {
+                                Vector3[] EndingPos123 = new Vector3[2];
+                                Line[2].SetPositions(EndingPos123);
+                                Line[2].enabled = true;
+                                isLineActive[2] = true;
+                                isOnelineActive = true;
+                                CurrentStartingDot = "Dot03";
+                            }
                             break;
                         case "Dot04":
-                            Vector3[] EndingPos124 = new Vector3[2];
-                            Line[3].SetPositions(EndingPos124);
-                            Line[3].enabled = true;
-                            isLineActive[3] = true;
-                            isOnelineActive = true;
-                            CurrentStartingDot = "Dot04";
-
-                            //  print("DOT4");
-                            //  currentDot = 3;
-
-
+                            if (StartingDots[PlayerCount] == "Dot04")
+                            {
+                                Vector3[] EndingPos124 = new Vector3[2];
+                                Line[3].SetPositions(EndingPos124);
+                                Line[3].enabled = true;
+                                isLineActive[3] = true;
+                                isOnelineActive = true;
+                                CurrentStartingDot = "Dot04";
+                            }
                             break;
                         case "Dot05":
-
-                            Vector3[] EndingPos15 = new Vector3[2];
-                            Line[4].SetPositions(EndingPos15);
-                            Line[4].enabled = true;
-                            isLineActive[4] = true;
-                            isOnelineActive = true;
-                            CurrentStartingDot = "Dot05";
-
-                            // currentDot = 4;
-
-                            //  print("DOT5");
-
+                            if (StartingDots[PlayerCount] == "Dot05")
+                            {
+                                Vector3[] EndingPos15 = new Vector3[2];
+                                Line[4].SetPositions(EndingPos15);
+                                Line[4].enabled = true;
+                                isLineActive[4] = true;
+                                isOnelineActive = true;
+                                CurrentStartingDot = "Dot05";
+                            }
                             break;
                         case "Dot06":
-                            Vector3[] EndingPos14 = new Vector3[2];
-                            Line[5].SetPositions(EndingPos14);
-                            Line[5].enabled = true;
-                            isLineActive[5] = true;
-                            isOnelineActive = true;
-                            CurrentStartingDot = "Dot06";
-
-                            //  currentDot = 5;
-
-                            //      print("DOT6");
-
+                            if (StartingDots[PlayerCount] == "Dot06")
+                            {
+                                Vector3[] EndingPos14 = new Vector3[2];
+                                Line[5].SetPositions(EndingPos14);
+                                Line[5].enabled = true;
+                                isLineActive[5] = true;
+                                isOnelineActive = true;
+                                CurrentStartingDot = "Dot06";
+                            }
                             break;
                         case "Dot07":
-                            Vector3[] EndingPos122 = new Vector3[2];
-                            Line[6].SetPositions(EndingPos122);
-                            Line[6].enabled = true;
-                            isLineActive[6] = true;
-                            isOnelineActive = true;
-                            CurrentStartingDot = "Dot07";
-
-                            //    print("DOT7");
-                            //  currentDot = 6;
-
+                            if (StartingDots[PlayerCount] == "Dot07")
+                            {
+                                Vector3[] EndingPos122 = new Vector3[2];
+                                Line[6].SetPositions(EndingPos122);
+                                Line[6].enabled = true;
+                                isLineActive[6] = true;
+                                isOnelineActive = true;
+                                CurrentStartingDot = "Dot07";
+                            }
                             break;
                         case "Dot08":
-                            Vector3[] EndingPos121 = new Vector3[2];
-                            Line[7].SetPositions(EndingPos121);
-                            Line[7].enabled = true;
-                            isLineActive[7] = true;
-                            isOnelineActive = true;
-                            CurrentStartingDot = "Dot08";
-
-                            //   print("DOT8");
-                            // currentDot = 7;
-
+                            if (StartingDots[PlayerCount] == "Dot08")
+                            {
+                                Vector3[] EndingPos121 = new Vector3[2];
+                                Line[7].SetPositions(EndingPos121);
+                                Line[7].enabled = true;
+                                isLineActive[7] = true;
+                                isOnelineActive = true;
+                                CurrentStartingDot = "Dot08";
+                            }
                             break;
                         case "Dot09":
-                            Vector3[] EndingPos152 = new Vector3[2];
-                            Line[8].SetPositions(EndingPos152);
-                            Line[8].enabled = true;
-                            isLineActive[8] = true;
-                            isOnelineActive = true;
-                            CurrentStartingDot = "Dot09";
-
-                            //   print("DOT9");
-                            //  currentDot = 8;
-
+                            if (StartingDots[PlayerCount] == "Dot09")
+                            {
+                                Vector3[] EndingPos152 = new Vector3[2];
+                                Line[8].SetPositions(EndingPos152);
+                                Line[8].enabled = true;
+                                isLineActive[8] = true;
+                                isOnelineActive = true;
+                                CurrentStartingDot = "Dot09";
+                            }
                             break;
                         default:
                             break;
