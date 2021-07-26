@@ -57,6 +57,7 @@ public class TouchScreenMode : MonoBehaviour
     }
     public void Awake()
     {
+        Screen.orientation = ScreenOrientation.Portrait;
         StartingDots = new string[300];
         isLineActive = new bool[9];
         // Dots = new GameObject[9];
@@ -489,7 +490,6 @@ public class TouchScreenMode : MonoBehaviour
                     Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
                     RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
-                    print(StartingDots[PlayerCount]);
                     if (hit.collider == null)
                     {
                         return;

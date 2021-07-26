@@ -34,20 +34,35 @@ public class TwoByTwo : MonoBehaviour
     public int Round = 1;
     public bool EndGame = false;
     public int LinesAtATime = 2;
+    public GameObject pause;
+
     public void Awake()
     {
+        Screen.orientation = ScreenOrientation.Portrait;
         isLineActive = new bool[4];
         // Dots = new GameObject[9];
         IsAIGameState = true;
         EndingDots = new string[300];
         StartingDots = new string[300];
         AI.pp();
-        WhatIsGoingOn.text = "Generating Lines";
+        WhatIsGoingOn.text = "Round 1";
         TheInstructions = new string[300];
         for (int p = 0; p < AI.Instruction.Length; p++)
         {
             TheInstructions[p] = AI.Instruction[p];
         }
+    }
+    public void activatePause()
+    {
+        pause.SetActive(false);
+        Time.timeScale = 0;
+
+    }
+    public void deactivatePause()
+    {
+        pause.SetActive(true);
+        Time.timeScale = 1;
+
     }
     IEnumerator WaitThing()
     {
@@ -155,7 +170,7 @@ public class TwoByTwo : MonoBehaviour
             {
                 if (pp < AI.Instruction.Length * Round)
                 {
-                    print(pp);
+                   // print(pp);
                     StartingDotAI = TheInstructions[pp].Substring(0, TheInstructions[pp].IndexOf("_"));
                     StartingDots[pp] = StartingDotAI;
                         //print(AI.Instruction[pp].Length);
@@ -164,7 +179,7 @@ public class TwoByTwo : MonoBehaviour
                         EndingDotAI += TheInstructions[pp][i];
                     }
                     EndingDots[pp] = EndingDotAI;
-                    print(EndingDotAI);
+                //    print(EndingDotAI);
                     HasDrawnLine = true;
                     StartCoroutine(WaitThing());
                 }
@@ -172,7 +187,7 @@ public class TwoByTwo : MonoBehaviour
                 {
                     HasDrawnLine = true;
                     IsAIGameState = false;
-                    WhatIsGoingOn.text = "Draw Lines!";
+                   // WhatIsGoingOn.text = "Draw Lines!";
 
                     /* for (int a = 0; a < Line.Length; a++)
                      {
@@ -259,6 +274,96 @@ public class TwoByTwo : MonoBehaviour
                             Vector3[] PP = new Vector3[2];
                             PP[0] = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - Dots[i].transform.position.x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y - Dots[i].transform.position.y, 0);
                             Line[i].SetPositions(PP);
+                           // print(Line[i].GetPosition(0));
+                           /* Vector2 pp2 = new Vector2(PP[0].x, PP[0].y);
+                            RaycastHit2D hit1 = Physics2D.Raycast(pp2, Line[i].transform.position);
+                            if (hit1.collider != null) { 
+                                if (hit1.collider.name == "Dot02" && i != 1)
+                                {
+                                    if (hit1.distance > Axis)
+                                    {
+                                        if (EndingDots[PlayerCount] != "Dot02" || StartingDots[PlayerCount] != CurrentStartingDot)
+                                        {
+                                            EndCondition.SetActive(true);
+                                            EndGame = true;
+                                        }
+                                        else
+                                        {
+                                            PlayerCount++;
+                                        }
+                                        HasPlaced = true;
+                                    }
+                                }
+                                if (hit1.collider.name == "Dot03" && i != 2)
+                                {
+                                    if (hit1.distance > Axis)
+                                    {
+                                        if (EndingDots[PlayerCount] != "Dot03" || StartingDots[PlayerCount] != CurrentStartingDot)
+                                        {
+                                            EndCondition.SetActive(true);
+                                            EndGame = true;
+                                        }
+                                        else
+                                        {
+                                            PlayerCount++;
+                                        }
+                                        HasPlaced = true;
+                                    }
+                                }
+                                if (hit1.collider.name == "Dot01" && i != 0)
+                                {
+                                    if (hit1.distance > Axis)
+                                    {
+                                        if (EndingDots[PlayerCount] != "Dot01" || StartingDots[PlayerCount] != CurrentStartingDot)
+                                        {
+                                            EndCondition.SetActive(true);
+                                            EndGame = true;
+                                        }
+                                        else
+                                        {
+                                            PlayerCount++;
+                                        }
+                                        HasPlaced = true;
+                                    }
+                                }
+                                if (hit1.collider.name == "Dot04" && i != 3)
+                                {
+                                    if (hit1.distance > Axis)
+                                    {
+                                        if (EndingDots[PlayerCount] != "Dot04" || StartingDots[PlayerCount] != CurrentStartingDot)
+                                        {
+                                            EndCondition.SetActive(true);
+                                            EndGame = true;
+                                        }
+                                        else
+                                        {
+                                            PlayerCount++;
+                                        }
+                                        HasPlaced = true;
+                                    }
+                                }
+                                if (PlayerCount >= LinesAtATime * Round)
+                                {
+                                    AI.pp();
+                                    WhatIsGoingOn.text = "Generting Lines";
+                                    IsAIGameState = true;
+                                    HasDrawnLine = false;
+                                    PlayerCount = 0;
+                                    //AI.pp();
+
+                                    for (int p = 0; p < AI.Instruction.Length; p++)
+                                    {
+                                        TheInstructions[p + 2 * Round] = AI.Instruction[p];
+                                    }
+                                    Round++;
+                                    pp = 0;
+                                    for (int a = 0; a < Line.Length; a++)
+                                    {
+                                        Line[a].enabled = false;
+                                    }
+
+                                }
+                            }*/
                             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                             Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
                             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
@@ -434,7 +539,7 @@ public class TwoByTwo : MonoBehaviour
                                 if (PlayerCount >= LinesAtATime * Round)
                                 {
                                       AI.pp();
-                                    WhatIsGoingOn.text = "Generting Lines";
+                                    //WhatIsGoingOn.text = "Generting Lines";
                                     IsAIGameState = true;
                                     HasDrawnLine = false;
                                     PlayerCount = 0;
@@ -445,6 +550,8 @@ public class TwoByTwo : MonoBehaviour
                                         TheInstructions[p + 2 * Round] = AI.Instruction[p];
                                     }
                                     Round++;
+                                    WhatIsGoingOn.text = "Round " + Round;
+
                                     pp = 0;
                                     for (int a = 0; a < Line.Length; a++)
                                     {

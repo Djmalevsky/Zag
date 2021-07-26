@@ -39,15 +39,30 @@ public class TwoByTwoUpdated : MonoBehaviour
    // bool Thing = false;
     public string[] StartingDots;
     public string CurrentStartingDot = "";
+    public GameObject pause;
+    public void activatePause()
+    {
+        pause.SetActive(false);
+        Time.timeScale = 0;
+
+    }
+    public void deactivatePause()
+    {
+        pause.SetActive(true);
+        Time.timeScale = 1;
+
+    }
+
     public void Awake()
     {
+        Screen.orientation = ScreenOrientation.Portrait;
         StartingDots = new string[300];
         isLineActive = new bool[4];
         // Dots = new GameObject[9];
         IsAIGameState = true;
         EndingDots = new string[300];
         AI.pp();
-        WhatIsGoingOn.text = "Generating Lines";
+        WhatIsGoingOn.text = "Round 1";
         TheInstructions = new string[300];
         for (int p = 0; p < AI.Instruction.Length; p++)
         {
@@ -808,7 +823,7 @@ public class TwoByTwoUpdated : MonoBehaviour
                                 if (PlayerCount >= LinesAtATime * Round)
                                 {
                                     AI.pp();
-                                    WhatIsGoingOn.text = "Generting Lines";
+                                  //  WhatIsGoingOn.text = "Generting Lines";
                                     IsAIGameState = true;
                                     HasDrawnLine = false;
                                     PlayerCount = 0;
@@ -819,6 +834,8 @@ public class TwoByTwoUpdated : MonoBehaviour
                                         TheInstructions[p + 2 * Round] = AI.Instruction[p];
                                     }
                                     Round++;
+                                    WhatIsGoingOn.text = "Round " + Round;
+
                                     pp = 0;
                                     for (int a = 0; a < Line.Length; a++)
                                     {
