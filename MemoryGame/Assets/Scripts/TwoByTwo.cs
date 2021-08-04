@@ -19,11 +19,11 @@ public class TwoByTwo : MonoBehaviour
     bool IsAIGameState = true;
     public bool[] isLineActive;
     public bool isOnelineActive = false;
-    bool HasPlaced = false;
-    float Axis = 2;
+    public bool HasPlaced = false;
+    public float Axis = 2;
     public int pp = 0;
     int sec = 3;
-    int PlayerCount = 0;
+    public int PlayerCount = 0;
     public GameObject EndCondition;
     public string[] EndingDots;
     public string[] StartingDots;
@@ -35,7 +35,7 @@ public class TwoByTwo : MonoBehaviour
     public bool EndGame = false;
     public int LinesAtATime = 2;
     public GameObject pause;
-
+    public GameObject[] DotSelected;
     public void Awake()
     {
         Screen.orientation = ScreenOrientation.Portrait;
@@ -152,7 +152,7 @@ public class TwoByTwo : MonoBehaviour
                 break;
         }
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1f);
         // HasDrawnLine = false;
         // pp++;
         // EndingDotAI = "";
@@ -274,99 +274,11 @@ public class TwoByTwo : MonoBehaviour
                             Vector3[] PP = new Vector3[2];
                             PP[0] = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - Dots[i].transform.position.x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y - Dots[i].transform.position.y, 0);
                             Line[i].SetPositions(PP);
-                           // print(Line[i].GetPosition(0));
-                           /* Vector2 pp2 = new Vector2(PP[0].x, PP[0].y);
-                            RaycastHit2D hit1 = Physics2D.Raycast(pp2, Line[i].transform.position);
-                            if (hit1.collider != null) { 
-                                if (hit1.collider.name == "Dot02" && i != 1)
-                                {
-                                    if (hit1.distance > Axis)
-                                    {
-                                        if (EndingDots[PlayerCount] != "Dot02" || StartingDots[PlayerCount] != CurrentStartingDot)
-                                        {
-                                            EndCondition.SetActive(true);
-                                            EndGame = true;
-                                        }
-                                        else
-                                        {
-                                            PlayerCount++;
-                                        }
-                                        HasPlaced = true;
-                                    }
-                                }
-                                if (hit1.collider.name == "Dot03" && i != 2)
-                                {
-                                    if (hit1.distance > Axis)
-                                    {
-                                        if (EndingDots[PlayerCount] != "Dot03" || StartingDots[PlayerCount] != CurrentStartingDot)
-                                        {
-                                            EndCondition.SetActive(true);
-                                            EndGame = true;
-                                        }
-                                        else
-                                        {
-                                            PlayerCount++;
-                                        }
-                                        HasPlaced = true;
-                                    }
-                                }
-                                if (hit1.collider.name == "Dot01" && i != 0)
-                                {
-                                    if (hit1.distance > Axis)
-                                    {
-                                        if (EndingDots[PlayerCount] != "Dot01" || StartingDots[PlayerCount] != CurrentStartingDot)
-                                        {
-                                            EndCondition.SetActive(true);
-                                            EndGame = true;
-                                        }
-                                        else
-                                        {
-                                            PlayerCount++;
-                                        }
-                                        HasPlaced = true;
-                                    }
-                                }
-                                if (hit1.collider.name == "Dot04" && i != 3)
-                                {
-                                    if (hit1.distance > Axis)
-                                    {
-                                        if (EndingDots[PlayerCount] != "Dot04" || StartingDots[PlayerCount] != CurrentStartingDot)
-                                        {
-                                            EndCondition.SetActive(true);
-                                            EndGame = true;
-                                        }
-                                        else
-                                        {
-                                            PlayerCount++;
-                                        }
-                                        HasPlaced = true;
-                                    }
-                                }
-                                if (PlayerCount >= LinesAtATime * Round)
-                                {
-                                    AI.pp();
-                                    WhatIsGoingOn.text = "Generting Lines";
-                                    IsAIGameState = true;
-                                    HasDrawnLine = false;
-                                    PlayerCount = 0;
-                                    //AI.pp();
-
-                                    for (int p = 0; p < AI.Instruction.Length; p++)
-                                    {
-                                        TheInstructions[p + 2 * Round] = AI.Instruction[p];
-                                    }
-                                    Round++;
-                                    pp = 0;
-                                    for (int a = 0; a < Line.Length; a++)
-                                    {
-                                        Line[a].enabled = false;
-                                    }
-
-                                }
-                            }*/
+                            Line[i].GetComponent<LineCollision>().TestCollision(Dots[i].name);
                             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                             Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
                             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
+                          //  DotSelected[i].SetActive(true);
                             if (hit.collider != null)
                             {
                                 switch (i)
@@ -378,9 +290,13 @@ public class TwoByTwo : MonoBehaviour
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
+                                                Vector3[] EndingPos = new Vector3[2];
+                                                EndingPos[1] = new Vector3(Axis, 0, 0);
+                                                Line[i].SetPositions(EndingPos);
                                             }
                                             else
                                             {
+                                             //   DotSelected[i].SetActive(false);
                                                 PlayerCount++;
                                             }
                                             HasPlaced = true;
@@ -391,9 +307,13 @@ public class TwoByTwo : MonoBehaviour
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
+                                                Vector3[] EndingPos = new Vector3[2];
+                                                EndingPos[1] = new Vector3(Axis, -Axis, 0);
+                                                Line[i].SetPositions(EndingPos);
                                             }
                                             else
                                             {
+                                             //   DotSelected[i].SetActive(false);
                                                 PlayerCount++;
                                             }
                                             HasPlaced = true;
@@ -404,9 +324,13 @@ public class TwoByTwo : MonoBehaviour
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
+                                                Vector3[] EndingPos = new Vector3[2];
+                                                EndingPos[1] = new Vector3(0, -Axis, 0);
+                                                Line[i].SetPositions(EndingPos);
                                             }
                                             else
                                             {
+                                            //    DotSelected[i].SetActive(false);
                                                 PlayerCount++;
                                             }
                                             HasPlaced = true;
@@ -419,9 +343,13 @@ public class TwoByTwo : MonoBehaviour
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
+                                                Vector3[] EndingPos = new Vector3[2];
+                                                EndingPos[1] = new Vector3(-Axis, 0, 0);
+                                                Line[i].SetPositions(EndingPos);
                                             }
                                             else
                                             {
+                                            //    DotSelected[i].SetActive(false);
                                                 PlayerCount++;
                                             }
                                             HasPlaced = true;
@@ -432,9 +360,13 @@ public class TwoByTwo : MonoBehaviour
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
+                                                Vector3[] EndingPos = new Vector3[2];
+                                                EndingPos[1] = new Vector3(-Axis, -Axis, 0);
+                                                Line[i].SetPositions(EndingPos);
                                             }
                                             else
                                             {
+                                          //      DotSelected[i].SetActive(false);
                                                 PlayerCount++;
                                             }
                                             HasPlaced = true;
@@ -445,9 +377,13 @@ public class TwoByTwo : MonoBehaviour
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
+                                                Vector3[] EndingPos = new Vector3[2];
+                                                EndingPos[1] = new Vector3(0, -Axis, 0);
+                                                Line[i].SetPositions(EndingPos);
                                             }
                                             else
                                             {
+                                              //  DotSelected[i].SetActive(false);
                                                 PlayerCount++;
                                             }
                                             HasPlaced = true;
@@ -460,9 +396,13 @@ public class TwoByTwo : MonoBehaviour
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
+                                                Vector3[] EndingPos = new Vector3[2];
+                                                EndingPos[1] = new Vector3(Axis, Axis, 0);
+                                                Line[i].SetPositions(EndingPos);
                                             }
                                             else
                                             {
+                                            //    DotSelected[i].SetActive(false);
                                                 PlayerCount++;
                                             }
                                             HasPlaced = true;
@@ -473,9 +413,13 @@ public class TwoByTwo : MonoBehaviour
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
+                                                Vector3[] EndingPos = new Vector3[2];
+                                                EndingPos[1] = new Vector3(Axis, 0, 0);
+                                                Line[i].SetPositions(EndingPos);
                                             }
                                             else
                                             {
+                                           //     DotSelected[i].SetActive(false);
                                                 PlayerCount++;
                                             }
                                             HasPlaced = true;
@@ -486,9 +430,13 @@ public class TwoByTwo : MonoBehaviour
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
+                                                Vector3[] EndingPos = new Vector3[2];
+                                                EndingPos[1] = new Vector3(0, Axis, 0);
+                                                Line[i].SetPositions(EndingPos);
                                             }
                                             else
                                             {
+                                             //   DotSelected[i].SetActive(false);
                                                 PlayerCount++;
                                             }
                                             HasPlaced = true;
@@ -501,9 +449,13 @@ public class TwoByTwo : MonoBehaviour
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
+                                                Vector3[] EndingPos = new Vector3[2];
+                                                EndingPos[1] = new Vector3(-Axis, Axis, 0);
+                                                Line[i].SetPositions(EndingPos);
                                             }
                                             else
                                             {
+                                           //     DotSelected[i].SetActive(false);
                                                 PlayerCount++;
                                             }
                                             HasPlaced = true;
@@ -514,9 +466,13 @@ public class TwoByTwo : MonoBehaviour
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
+                                                Vector3[] EndingPos = new Vector3[2];
+                                                EndingPos[1] = new Vector3(0, Axis, 0);
+                                                Line[i].SetPositions(EndingPos);
                                             }
                                             else
                                             {
+                                           //     DotSelected[i].SetActive(false);
                                                 PlayerCount++;
                                             }
                                             HasPlaced = true;
@@ -527,41 +483,46 @@ public class TwoByTwo : MonoBehaviour
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
+                                                Vector3[] EndingPos = new Vector3[2];
+                                                EndingPos[1] = new Vector3(Axis, Axis, 0);
+                                                Line[i].SetPositions(EndingPos);
                                             }
                                             else
                                             {
+                                           //     DotSelected[i].SetActive(false);
                                                 PlayerCount++;
                                             }
                                             HasPlaced = true;
                                         }
                                         break;
                                 }
-                                if (PlayerCount >= LinesAtATime * Round)
+
+
+                            }
+                            if (PlayerCount >= LinesAtATime * Round)
+                            {
+                                AI.pp();
+                                //WhatIsGoingOn.text = "Generting Lines";
+                                IsAIGameState = true;
+                                HasDrawnLine = false;
+                                PlayerCount = 0;
+                                //AI.pp();
+
+                                for (int p = 0; p < AI.Instruction.Length; p++)
                                 {
-                                      AI.pp();
-                                    //WhatIsGoingOn.text = "Generting Lines";
-                                    IsAIGameState = true;
-                                    HasDrawnLine = false;
-                                    PlayerCount = 0;
-                                    //AI.pp();
+                                    TheInstructions[p + 2 * Round] = AI.Instruction[p];
+                                }
+                                Round++;
+                                WhatIsGoingOn.text = "Round " + Round;
 
-                                    for (int p = 0; p < AI.Instruction.Length; p++)
-                                    {
-                                        TheInstructions[p + 2 * Round] = AI.Instruction[p];
-                                    }
-                                    Round++;
-                                    WhatIsGoingOn.text = "Round " + Round;
-
-                                    pp = 0;
-                                    for (int a = 0; a < Line.Length; a++)
-                                    {
-                                        Line[a].enabled = false;
-                                    }
-
+                                pp = 0;
+                                for (int a = 0; a < Line.Length; a++)
+                                {
+                                    Line[a].enabled = false;
                                 }
 
                             }
-                            if (Input.GetMouseButtonDown(0))
+                            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonUp(0))
                             {
                                 HasPlaced = true;
                             }
