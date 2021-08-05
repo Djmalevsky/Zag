@@ -47,7 +47,7 @@ public class LineCollision : MonoBehaviour
                 }
                 else
                 {
-                   // GameObject.Find("Main Camera").GetComponent<TwoByTwo>().DotSelected[0].SetActive(false);
+                    GameObject.Find("Main Camera").GetComponent<TwoByTwo>().DotSelected[0].SetActive(false);
                     GameObject.Find("Main Camera").GetComponent<TwoByTwo>().PlayerCount++;
                 }
                 GameObject.Find("Main Camera").GetComponent<TwoByTwo>().HasPlaced = true;
@@ -64,7 +64,7 @@ public class LineCollision : MonoBehaviour
                 }
                 else
                 {
-                  //  GameObject.Find("Main Camera").GetComponent<TwoByTwo>().DotSelected[0].SetActive(false);
+                    GameObject.Find("Main Camera").GetComponent<TwoByTwo>().DotSelected[0].SetActive(false);
                     GameObject.Find("Main Camera").GetComponent<TwoByTwo>().PlayerCount++;
                 }
                 GameObject.Find("Main Camera").GetComponent<TwoByTwo>().HasPlaced = true;
@@ -81,7 +81,7 @@ public class LineCollision : MonoBehaviour
                 }
                 else
                 {
-                   // GameObject.Find("Main Camera").GetComponent<TwoByTwo>().DotSelected[0].SetActive(false);
+                    GameObject.Find("Main Camera").GetComponent<TwoByTwo>().DotSelected[0].SetActive(false);
                     GameObject.Find("Main Camera").GetComponent<TwoByTwo>().PlayerCount++;
                 }
                 GameObject.Find("Main Camera").GetComponent<TwoByTwo>().HasPlaced = true;
@@ -101,7 +101,7 @@ public class LineCollision : MonoBehaviour
                 }
                 else
                 {
-                   // GameObject.Find("Main Camera").GetComponent<TwoByTwo>().DotSelected[1].SetActive(false);
+                    GameObject.Find("Main Camera").GetComponent<TwoByTwo>().DotSelected[1].SetActive(false);
                     GameObject.Find("Main Camera").GetComponent<TwoByTwo>().PlayerCount++;
                 }
                 GameObject.Find("Main Camera").GetComponent<TwoByTwo>().HasPlaced = true;
@@ -118,7 +118,7 @@ public class LineCollision : MonoBehaviour
                 }
                 else
                 {
-                  //  GameObject.Find("Main Camera").GetComponent<TwoByTwo>().DotSelected[1].SetActive(false);
+                    GameObject.Find("Main Camera").GetComponent<TwoByTwo>().DotSelected[1].SetActive(false);
                     GameObject.Find("Main Camera").GetComponent<TwoByTwo>().PlayerCount++;
                 }
                 GameObject.Find("Main Camera").GetComponent<TwoByTwo>().HasPlaced = true;
@@ -135,7 +135,7 @@ public class LineCollision : MonoBehaviour
                 }
                 else
                 {
-                  //  GameObject.Find("Main Camera").GetComponent<TwoByTwo>().DotSelected[1].SetActive(false);
+                    GameObject.Find("Main Camera").GetComponent<TwoByTwo>().DotSelected[1].SetActive(false);
                     GameObject.Find("Main Camera").GetComponent<TwoByTwo>().PlayerCount++;
                 }
                 GameObject.Find("Main Camera").GetComponent<TwoByTwo>().HasPlaced = true;
@@ -155,7 +155,7 @@ public class LineCollision : MonoBehaviour
                 }
                 else
                 {
-                 //   GameObject.Find("Main Camera").GetComponent<TwoByTwo>().DotSelected[2].SetActive(false);
+                    GameObject.Find("Main Camera").GetComponent<TwoByTwo>().DotSelected[2].SetActive(false);
                     GameObject.Find("Main Camera").GetComponent<TwoByTwo>().PlayerCount++;
                 }
                 GameObject.Find("Main Camera").GetComponent<TwoByTwo>().HasPlaced = true;
@@ -172,7 +172,7 @@ public class LineCollision : MonoBehaviour
                 }
                 else
                 {
-                  //  GameObject.Find("Main Camera").GetComponent<TwoByTwo>().DotSelected[2].SetActive(false);
+                    GameObject.Find("Main Camera").GetComponent<TwoByTwo>().DotSelected[2].SetActive(false);
                     GameObject.Find("Main Camera").GetComponent<TwoByTwo>().PlayerCount++;
                 }
                 GameObject.Find("Main Camera").GetComponent<TwoByTwo>().HasPlaced = true;
@@ -189,7 +189,7 @@ public class LineCollision : MonoBehaviour
                 }
                 else
                 {
-                  //  GameObject.Find("Main Camera").GetComponent<TwoByTwo>().DotSelected[2].SetActive(false);
+                    GameObject.Find("Main Camera").GetComponent<TwoByTwo>().DotSelected[2].SetActive(false);
                     GameObject.Find("Main Camera").GetComponent<TwoByTwo>().PlayerCount++;
                 }
                 GameObject.Find("Main Camera").GetComponent<TwoByTwo>().HasPlaced = true;
@@ -209,7 +209,7 @@ public class LineCollision : MonoBehaviour
                 }
                 else
                 {
-                 //   GameObject.Find("Main Camera").GetComponent<TwoByTwo>().DotSelected[3].SetActive(false);
+                    GameObject.Find("Main Camera").GetComponent<TwoByTwo>().DotSelected[3].SetActive(false);
                     GameObject.Find("Main Camera").GetComponent<TwoByTwo>().PlayerCount++;
                 }
                 GameObject.Find("Main Camera").GetComponent<TwoByTwo>().HasPlaced = true;
@@ -226,7 +226,7 @@ public class LineCollision : MonoBehaviour
                 }
                 else
                 {
-                 //   GameObject.Find("Main Camera").GetComponent<TwoByTwo>().DotSelected[3].SetActive(false);
+                    GameObject.Find("Main Camera").GetComponent<TwoByTwo>().DotSelected[3].SetActive(false);
                     GameObject.Find("Main Camera").GetComponent<TwoByTwo>().PlayerCount++;
                 }
                 GameObject.Find("Main Camera").GetComponent<TwoByTwo>().HasPlaced = true;
@@ -238,12 +238,12 @@ public class LineCollision : MonoBehaviour
                     GameObject.Find("Main Camera").GetComponent<TwoByTwo>().EndCondition.SetActive(true);
                     GameObject.Find("Main Camera").GetComponent<TwoByTwo>().EndGame = true;
                     Vector3[] EndingPos = new Vector3[2];
-                    EndingPos[1] = new Vector3(GameObject.Find("Main Camera").GetComponent<TwoByTwo>().Axis, GameObject.Find("Main Camera").GetComponent<TwoByTwo>().Axis, 0);
+                    EndingPos[1] = new Vector3(-GameObject.Find("Main Camera").GetComponent<TwoByTwo>().Axis, 0, 0);
                     GameObject.Find("Main Camera").GetComponent<TwoByTwo>().Line[3].SetPositions(EndingPos);
                 }
                 else
                 {
-                  //  GameObject.Find("Main Camera").GetComponent<TwoByTwo>().DotSelected[3].SetActive(false);
+                    GameObject.Find("Main Camera").GetComponent<TwoByTwo>().DotSelected[3].SetActive(false);
                     GameObject.Find("Main Camera").GetComponent<TwoByTwo>().PlayerCount++;
                 }
                 GameObject.Find("Main Camera").GetComponent<TwoByTwo>().HasPlaced = true;
