@@ -55,18 +55,19 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\ExampleClass.cs" />
     <Compile Include="Assets\Scripts\AIgenerated2.cs" />
-    <Compile Include="Assets\TwoByTwoUpdated.cs" />
+    <Compile Include="Assets\Scripts\TwoByTwoUpdated.cs" />
+    <Compile Include="Assets\Scripts\LineCollision.cs" />
     <Compile Include="Assets\Scripts\TouchScreenMode.cs" />
-    <Compile Include="Assets\AIgeneratedColor.cs" />
+    <Compile Include="Assets\Scripts\AIgeneratedColor.cs" />
+    <Compile Include="Assets\Scripts\DotCollision.cs" />
     <Compile Include="Assets\Scripts\trailfollow.cs" />
     <Compile Include="Assets\Scripts\LineAnimator.cs" />
     <Compile Include="Assets\RandomAssets\NewBehaviourScript.cs" />
     <Compile Include="Assets\Scripts\TestScript.cs" />
     <Compile Include="Assets\Scripts\AIgenerated.cs" />
     <Compile Include="Assets\Scripts\TwoByTwo.cs" />
-    <Compile Include="Assets\MainMenu.cs" />
-    <Compile Include="Assets\Scripts\LineCollision.cs" />
-    <Compile Include="Assets\DotCollision.cs" />
+    <Compile Include="Assets\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\LineCollision2.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
