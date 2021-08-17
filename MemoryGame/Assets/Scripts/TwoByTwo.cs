@@ -19,32 +19,79 @@ public class TwoByTwo : MonoBehaviour
     bool IsAIGameState = true;
     public bool[] isLineActive;
     public bool isOnelineActive = false;
-    bool HasPlaced = false;
-    float Axis = 2;
+    public bool HasPlaced = false;
+    public float Axis = 2;
     public int pp = 0;
     int sec = 3;
-    int PlayerCount = 0;
+    public int PlayerCount = 0;
     public GameObject EndCondition;
     public string[] EndingDots;
+    public string[] StartingDots;
+    public string CurrentStartingDot = "";
     public GameObject PrefabTrail;
     public Text WhatIsGoingOn;
     public string[] TheInstructions;
     public int Round = 1;
     public bool EndGame = false;
     public int LinesAtATime = 2;
+    public GameObject pause;
+    public GameObject[] DotSelected;
     public void Awake()
     {
+        Screen.orientation = ScreenOrientation.Portrait;
         isLineActive = new bool[4];
         // Dots = new GameObject[9];
         IsAIGameState = true;
         EndingDots = new string[300];
+        StartingDots = new string[300];
         AI.pp();
-        WhatIsGoingOn.text = "Generating Lines";
+        WhatIsGoingOn.text = "Round 1";
         TheInstructions = new string[300];
         for (int p = 0; p < AI.Instruction.Length; p++)
         {
             TheInstructions[p] = AI.Instruction[p];
         }
+    }
+    public void Restart()
+    {
+        IsAIGameState = true;
+        TheInstructions = new string[300];
+        isLineActive = new bool[4];
+        EndingDots = new string[300];
+        StartingDots = new string[300];
+        HasDrawnLine = false;
+        isOnelineActive = false;
+        EndingDotAI = "";
+        PlayerCount = 0;
+        pp = 0;
+        AI.pp();
+        EndGame = false;
+        for (int p = 0; p < AI.Instruction.Length; p++)
+        {
+            TheInstructions[p] = AI.Instruction[p];
+        }
+        for (int a = 0; a < Line.Length; a++)
+        {
+            Line[a].enabled = false;
+        }
+        GameObject.Find("EndCondition").SetActive(false);
+        DotSelected[0].SetActive(false);
+        DotSelected[1].SetActive(false);
+        DotSelected[2].SetActive(false);
+        DotSelected[3].SetActive(false);
+        Round = 1;
+    }
+    public void activatePause()
+    {
+        pause.SetActive(false);
+        Time.timeScale = 0;
+
+    }
+    public void deactivatePause()
+    {
+        pause.SetActive(true);
+        Time.timeScale = 1;
+
     }
     IEnumerator WaitThing()
     {
@@ -134,7 +181,7 @@ public class TwoByTwo : MonoBehaviour
                 break;
         }
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1f);
         // HasDrawnLine = false;
         // pp++;
         // EndingDotAI = "";
@@ -152,15 +199,16 @@ public class TwoByTwo : MonoBehaviour
             {
                 if (pp < AI.Instruction.Length * Round)
                 {
-                    print(pp);
+                   // print(pp);
                     StartingDotAI = TheInstructions[pp].Substring(0, TheInstructions[pp].IndexOf("_"));
-                    //print(AI.Instruction[pp].Length);
+                    StartingDots[pp] = StartingDotAI;
+                        //print(AI.Instruction[pp].Length);
                     for (int i = 6; i < TheInstructions[pp].Length; i++)
                     {
                         EndingDotAI += TheInstructions[pp][i];
                     }
                     EndingDots[pp] = EndingDotAI;
-                    print(EndingDotAI);
+                //    print(EndingDotAI);
                     HasDrawnLine = true;
                     StartCoroutine(WaitThing());
                 }
@@ -168,7 +216,7 @@ public class TwoByTwo : MonoBehaviour
                 {
                     HasDrawnLine = true;
                     IsAIGameState = false;
-                    WhatIsGoingOn.text = "Draw Lines!";
+                   // WhatIsGoingOn.text = "Draw Lines!";
 
                     /* for (int a = 0; a < Line.Length; a++)
                      {
@@ -183,6 +231,22 @@ public class TwoByTwo : MonoBehaviour
         {
             if (!isOnelineActive)
             {
+                if (StartingDots[PlayerCount] == "Dot01")
+                {
+                    DotSelected[0].SetActive(true);
+                }
+                else if (StartingDots[PlayerCount] == "Dot02")
+                {
+                    DotSelected[1].SetActive(true);
+                }
+                else if (StartingDots[PlayerCount] == "Dot03")
+                {
+                    DotSelected[2].SetActive(true);
+                }
+                else if (StartingDots[PlayerCount] == "Dot04")
+                {
+                    DotSelected[3].SetActive(true);
+                }
                 if (Input.GetMouseButton(0) || Input.touchCount > 0)
                 {
                     Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -196,32 +260,52 @@ public class TwoByTwo : MonoBehaviour
                     switch (hit.collider.name)
                     {
                         case "Dot01":
-                            Vector3[] EndingPos1 = new Vector3[2];
-                            Line[0].SetPositions(EndingPos1);
-                            Line[0].enabled = true;
-                            isLineActive[0] = true;
-                            isOnelineActive = true;
+                            if (StartingDots[PlayerCount] == "Dot01")
+                            {
+                                Vector3[] EndingPos1 = new Vector3[2];
+                                Line[0].SetPositions(EndingPos1);
+                                Line[0].enabled = true;
+                                isLineActive[0] = true;
+                                isOnelineActive = true;
+                                CurrentStartingDot = "Dot01";
+                                DotSelected[0].SetActive(true);
+                            }
                             break;
                         case "Dot02":
-                            Vector3[] EndingPos12 = new Vector3[2];
-                            Line[1].SetPositions(EndingPos12);
-                            Line[1].enabled = true;
-                            isLineActive[1] = true;
-                            isOnelineActive = true;
+                            if (StartingDots[PlayerCount] == "Dot02")
+                            {
+                                Vector3[] EndingPos12 = new Vector3[2];
+                                Line[1].SetPositions(EndingPos12);
+                                Line[1].enabled = true;
+                                isLineActive[1] = true;
+                                isOnelineActive = true;
+                                CurrentStartingDot = "Dot02";
+                                DotSelected[1].SetActive(true);
+                            }
                             break;
                         case "Dot03":
-                            Vector3[] EndingPos123 = new Vector3[2];
-                            Line[2].SetPositions(EndingPos123);
-                            Line[2].enabled = true;
-                            isLineActive[2] = true;
-                            isOnelineActive = true;
+                            if (StartingDots[PlayerCount] == "Dot03")
+                            {
+                                Vector3[] EndingPos123 = new Vector3[2];
+                                Line[2].SetPositions(EndingPos123);
+                                Line[2].enabled = true;
+                                isLineActive[2] = true;
+                                isOnelineActive = true;
+                                CurrentStartingDot = "Dot03";
+                                DotSelected[2].SetActive(true);
+                            }
                             break;
                         case "Dot04":
-                            Vector3[] EndingPos124 = new Vector3[2];
-                            Line[3].SetPositions(EndingPos124);
-                            Line[3].enabled = true;
-                            isLineActive[3] = true;
-                            isOnelineActive = true;
+                            if (StartingDots[PlayerCount] == "Dot04")
+                            {
+                                Vector3[] EndingPos124 = new Vector3[2];
+                                Line[3].SetPositions(EndingPos124);
+                                Line[3].enabled = true;
+                                isLineActive[3] = true;
+                                isOnelineActive = true;
+                                CurrentStartingDot = "Dot04";
+                                DotSelected[3].SetActive(true);
+                            }
                             break;
                         default:
                             break;
@@ -239,9 +323,11 @@ public class TwoByTwo : MonoBehaviour
                             Vector3[] PP = new Vector3[2];
                             PP[0] = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - Dots[i].transform.position.x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y - Dots[i].transform.position.y, 0);
                             Line[i].SetPositions(PP);
+                            Line[i].GetComponent<LineCollision>().TestCollision(Dots[i].name);
                             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                             Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
                             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
+                          //  DotSelected[i].SetActive(true);
                             if (hit.collider != null)
                             {
                                 switch (i)
@@ -249,39 +335,51 @@ public class TwoByTwo : MonoBehaviour
                                     case 0:
                                         if (hit.collider.name == "Dot02")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot02")
+                                            if (EndingDots[PlayerCount] != "Dot02" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
+                                                Vector3[] EndingPos = new Vector3[2];
+                                                EndingPos[1] = new Vector3(Axis, 0, 0);
+                                                Line[i].SetPositions(EndingPos);
                                             }
                                             else
                                             {
+                                                DotSelected[i].SetActive(false);
                                                 PlayerCount++;
                                             }
                                             HasPlaced = true;
                                         }
                                         else if (hit.collider.name == "Dot04")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot04")
+                                            if (EndingDots[PlayerCount] != "Dot04" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
+                                                Vector3[] EndingPos = new Vector3[2];
+                                                EndingPos[1] = new Vector3(Axis, -Axis, 0);
+                                                Line[i].SetPositions(EndingPos);
                                             }
                                             else
                                             {
+                                                DotSelected[i].SetActive(false);
                                                 PlayerCount++;
                                             }
                                             HasPlaced = true;
                                         }
                                         else if (hit.collider.name == "Dot03")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot03")
+                                            if (EndingDots[PlayerCount] != "Dot03" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
+                                                Vector3[] EndingPos = new Vector3[2];
+                                                EndingPos[1] = new Vector3(0, -Axis, 0);
+                                                Line[i].SetPositions(EndingPos);
                                             }
                                             else
                                             {
+                                                DotSelected[i].SetActive(false);
                                                 PlayerCount++;
                                             }
                                             HasPlaced = true;
@@ -290,39 +388,51 @@ public class TwoByTwo : MonoBehaviour
                                     case 1:
                                         if (hit.collider.name == "Dot01")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot01")
+                                            if (EndingDots[PlayerCount] != "Dot01" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
+                                                Vector3[] EndingPos = new Vector3[2];
+                                                EndingPos[1] = new Vector3(-Axis, 0, 0);
+                                                Line[i].SetPositions(EndingPos);
                                             }
                                             else
                                             {
+                                                DotSelected[i].SetActive(false);
                                                 PlayerCount++;
                                             }
                                             HasPlaced = true;
                                         }
                                         else if (hit.collider.name == "Dot03")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot03")
+                                            if (EndingDots[PlayerCount] != "Dot03" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
+                                                Vector3[] EndingPos = new Vector3[2];
+                                                EndingPos[1] = new Vector3(-Axis, -Axis, 0);
+                                                Line[i].SetPositions(EndingPos);
                                             }
                                             else
                                             {
+                                                DotSelected[i].SetActive(false);
                                                 PlayerCount++;
                                             }
                                             HasPlaced = true;
                                         }
                                         else if (hit.collider.name == "Dot04")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot04")
+                                            if (EndingDots[PlayerCount] != "Dot04" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
+                                                Vector3[] EndingPos = new Vector3[2];
+                                                EndingPos[1] = new Vector3(0, -Axis, 0);
+                                                Line[i].SetPositions(EndingPos);
                                             }
                                             else
                                             {
+                                                DotSelected[i].SetActive(false);
                                                 PlayerCount++;
                                             }
                                             HasPlaced = true;
@@ -331,39 +441,51 @@ public class TwoByTwo : MonoBehaviour
                                     case 2:
                                         if (hit.collider.name == "Dot02")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot02")
+                                            if (EndingDots[PlayerCount] != "Dot02" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
+                                                Vector3[] EndingPos = new Vector3[2];
+                                                EndingPos[1] = new Vector3(Axis, Axis, 0);
+                                                Line[i].SetPositions(EndingPos);
                                             }
                                             else
                                             {
+                                                DotSelected[i].SetActive(false);
                                                 PlayerCount++;
                                             }
                                             HasPlaced = true;
                                         }
                                         else if (hit.collider.name == "Dot04")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot04")
+                                            if (EndingDots[PlayerCount] != "Dot04" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
+                                                Vector3[] EndingPos = new Vector3[2];
+                                                EndingPos[1] = new Vector3(Axis, 0, 0);
+                                                Line[i].SetPositions(EndingPos);
                                             }
                                             else
                                             {
+                                                DotSelected[i].SetActive(false);
                                                 PlayerCount++;
                                             }
                                             HasPlaced = true;
                                         }
                                         else if (hit.collider.name == "Dot01")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot01")
+                                            if (EndingDots[PlayerCount] != "Dot01" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
+                                                Vector3[] EndingPos = new Vector3[2];
+                                                EndingPos[1] = new Vector3(0, Axis, 0);
+                                                Line[i].SetPositions(EndingPos);
                                             }
                                             else
                                             {
+                                                DotSelected[i].SetActive(false);
                                                 PlayerCount++;
                                             }
                                             HasPlaced = true;
@@ -372,69 +494,84 @@ public class TwoByTwo : MonoBehaviour
                                     case 3:
                                         if (hit.collider.name == "Dot01")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot01")
+                                            if (EndingDots[PlayerCount] != "Dot01" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
+                                                Vector3[] EndingPos = new Vector3[2];
+                                                EndingPos[1] = new Vector3(-Axis, Axis, 0);
+                                                Line[i].SetPositions(EndingPos);
                                             }
                                             else
                                             {
+                                                DotSelected[i].SetActive(false);
                                                 PlayerCount++;
                                             }
                                             HasPlaced = true;
                                         }
                                         else if (hit.collider.name == "Dot02")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot02")
+                                            if (EndingDots[PlayerCount] != "Dot02" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
+                                                Vector3[] EndingPos = new Vector3[2];
+                                                EndingPos[1] = new Vector3(0, Axis, 0);
+                                                Line[i].SetPositions(EndingPos);
                                             }
                                             else
                                             {
+                                                DotSelected[i].SetActive(false);
                                                 PlayerCount++;
                                             }
                                             HasPlaced = true;
                                         }
                                         else if (hit.collider.name == "Dot03")
                                         {
-                                            if (EndingDots[PlayerCount] != "Dot03")
+                                            if (EndingDots[PlayerCount] != "Dot03" || StartingDots[PlayerCount] != CurrentStartingDot)
                                             {
                                                 EndCondition.SetActive(true);
                                                 EndGame = true;
+                                                Vector3[] EndingPos = new Vector3[2];
+                                                EndingPos[1] = new Vector3(-Axis, 0, 0);
+                                                Line[i].SetPositions(EndingPos);
                                             }
                                             else
                                             {
+                                                DotSelected[i].SetActive(false);
                                                 PlayerCount++;
                                             }
                                             HasPlaced = true;
                                         }
                                         break;
                                 }
-                                if (PlayerCount >= LinesAtATime * Round)
+
+
+                            }
+                            if (PlayerCount >= LinesAtATime * Round)
+                            {
+                                AI.pp();
+                                //WhatIsGoingOn.text = "Generting Lines";
+                                IsAIGameState = true;
+                                HasDrawnLine = false;
+                                PlayerCount = 0;
+                                //AI.pp();
+
+                                for (int p = 0; p < AI.Instruction.Length; p++)
                                 {
-                                      AI.pp();
-                                    WhatIsGoingOn.text = "Generting Lines";
-                                    IsAIGameState = true;
-                                    HasDrawnLine = false;
-                                    PlayerCount = 0;
-                                    //AI.pp();
+                                    TheInstructions[p + 2 * Round] = AI.Instruction[p];
+                                }
+                                Round++;
+                                WhatIsGoingOn.text = "Round " + Round;
 
-                                    for (int p = 0; p < AI.Instruction.Length; p++)
-                                    {
-                                        TheInstructions[p + 2 * Round] = AI.Instruction[p];
-                                    }
-                                    Round++;
-                                    pp = 0;
-                                    for (int a = 0; a < Line.Length; a++)
-                                    {
-                                        Line[a].enabled = false;
-                                    }
-
+                                pp = 0;
+                                for (int a = 0; a < Line.Length; a++)
+                                {
+                                    Line[a].enabled = false;
                                 }
 
                             }
-                            if (Input.GetMouseButtonDown(0))
+                            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonUp(0))
                             {
                                 HasPlaced = true;
                             }

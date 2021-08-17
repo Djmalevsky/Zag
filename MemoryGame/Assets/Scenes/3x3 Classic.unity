@@ -1105,6 +1105,8 @@ MonoBehaviour:
   EndGame: 0
   LinesAtATime: 2
   pause: {fileID: 1043329217}
+  StartingDots: []
+  CurrentStartingDot: 
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1530,7 +1532,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 660978420}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 519420030}
+        m_TargetAssemblyTypeName: TouchScreenMode, Assembly-CSharp
+        m_MethodName: GoHome
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &660978420
 MonoBehaviour:
   m_ObjectHideFlags: 0

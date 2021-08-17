@@ -5,16 +5,26 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
+<<<<<<< HEAD
       ticks: 637604999429415256
     m_Hash: 3991104543
+=======
+      ticks: 637629987869346324
+    m_Hash: 4250214395
+>>>>>>> e81a0b041760120d1cadf34a5edbb4879ab20e6b
   m_LockFileStatus:
     m_FilePath: C:/Users/joshu/Documents/GitHub/Zag/MemoryGame/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
+<<<<<<< HEAD
       ticks: 637604999429564850
     m_Hash: 2246403966
+=======
+      ticks: 637629988002601893
+    m_Hash: 1894881186
+>>>>>>> e81a0b041760120d1cadf34a5edbb4879ab20e6b
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -101,8 +111,8 @@ m_PackageAssets:
         - 6.0.3
         - 6.0.4
         - 7.0.0-pre.2
+        - 7.0.0-pre.3
         compatible:
-        - 5.0.5
         - 5.0.6
         verified: 5.0.6
       dependencies:
@@ -232,12 +242,16 @@ m_PackageAssets:
         url: https://github.cds.internal.unity3d.com/unity/2d.git
         revision: 7d7470f4ca0ea8353d4c9640b3b6ae9d1ebd9c1d
         path: 
-    - packageId: com.unity.2d.psdimporter@4.0.2
+    - packageId: com.unity.2d.psdimporter@4.1.0
       testable: 0
       isDirectDependency: 1
-      version: 4.0.2
+      version: 4.1.0
       source: 1
+<<<<<<< HEAD
       resolvedPath: C:\Users\joshu\Documents\GitHub\Zag\MemoryGame\Library\PackageCache\com.unity.2d.psdimporter@4.0.2
+=======
+      resolvedPath: C:\Users\David\Desktop\Zag\Zag\MemoryGame\Library\PackageCache\com.unity.2d.psdimporter@4.1.0
+>>>>>>> e81a0b041760120d1cadf34a5edbb4879ab20e6b
       assetPath: Packages/com.unity.2d.psdimporter
       name: com.unity.2d.psdimporter
       displayName: 2D PSD Importer
@@ -293,15 +307,15 @@ m_PackageAssets:
         - 5.0.4
         - 6.0.0-pre.2
         - 6.0.0-pre.3
+        - 6.0.0-pre.4
         compatible:
-        - 4.0.2
         - 4.1.0
-        verified: 4.0.2
+        verified: 4.1.0
       dependencies:
       - name: com.unity.2d.common
-        version: 4.0.2
+        version: 4.0.3
       - name: com.unity.2d.animation
-        version: 5.0.2
+        version: 5.0.6
       - name: com.unity.2d.sprite
         version: 1.0.0
       resolvedDependencies:
@@ -341,13 +355,13 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637366443480000000
+      datePublishedTicks: 637594727750000000
       documentationUrl: 
       hasRepository: 1
       repository:
         type: git
         url: https://github.cds.internal.unity3d.com/unity/2d.git
-        revision: 4e96f68a7587d87b4fee15d6f88a5d86c2afa9aa
+        revision: 9e7fd5cbe078d004f1e87ecdf3b57436664a690a
         path: 
     - packageId: com.unity.2d.sprite@1.0.0
       testable: 0
@@ -400,12 +414,16 @@ m_PackageAssets:
         url: 
         revision: 
         path: 
-    - packageId: com.unity.2d.spriteshape@5.1.2
+    - packageId: com.unity.2d.spriteshape@5.1.3
       testable: 0
       isDirectDependency: 1
-      version: 5.1.2
+      version: 5.1.3
       source: 1
+<<<<<<< HEAD
       resolvedPath: C:\Users\joshu\Documents\GitHub\Zag\MemoryGame\Library\PackageCache\com.unity.2d.spriteshape@5.1.2
+=======
+      resolvedPath: C:\Users\David\Desktop\Zag\Zag\MemoryGame\Library\PackageCache\com.unity.2d.spriteshape@5.1.3
+>>>>>>> e81a0b041760120d1cadf34a5edbb4879ab20e6b
       assetPath: Packages/com.unity.2d.spriteshape
       name: com.unity.2d.spriteshape
       displayName: 2D SpriteShape
@@ -477,7 +495,6 @@ m_PackageAssets:
         - 7.0.0-pre.2
         - 7.0.0-pre.3
         compatible:
-        - 5.1.2
         - 5.1.3
         verified: 5.1.3
       dependencies:
@@ -529,13 +546,13 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637568738720000000
+      datePublishedTicks: 637594728080000000
       documentationUrl: 
       hasRepository: 1
       repository:
         type: git
         url: https://github.cds.internal.unity3d.com/unity/2d.git
-        revision: 03eb2fe90133273bcb1bd74654bdc02023cdfc7f
+        revision: 9e7fd5cbe078d004f1e87ecdf3b57436664a690a
         path: 
     - packageId: com.unity.2d.tilemap@1.0.0
       testable: 0
@@ -587,12 +604,16 @@ m_PackageAssets:
         url: 
         revision: 
         path: 
-    - packageId: com.unity.collab-proxy@1.5.7
+    - packageId: com.unity.collab-proxy@1.7.1
       testable: 0
       isDirectDependency: 1
-      version: 1.5.7
+      version: 1.7.1
       source: 1
+<<<<<<< HEAD
       resolvedPath: C:\Users\joshu\Documents\GitHub\Zag\MemoryGame\Library\PackageCache\com.unity.collab-proxy@1.5.7
+=======
+      resolvedPath: C:\Users\David\Desktop\Zag\Zag\MemoryGame\Library\PackageCache\com.unity.collab-proxy@1.7.1
+>>>>>>> e81a0b041760120d1cadf34a5edbb4879ab20e6b
       assetPath: Packages/com.unity.collab-proxy
       name: com.unity.collab-proxy
       displayName: Version Control
@@ -629,6 +650,8 @@ m_PackageAssets:
         - 1.3.9
         - 1.4.9
         - 1.5.7
+        - 1.6.0
+        - 1.7.1
         - 2.0.0-preview.6
         - 2.0.0-preview.8
         - 2.0.0-preview.15
@@ -640,7 +663,7 @@ m_PackageAssets:
         - 2.1.0-preview.5
         - 2.1.0-preview.6
         compatible:
-        - 1.5.7
+        - 1.7.1
         - 2.0.0-preview.6
         - 2.0.0-preview.8
         - 2.0.0-preview.15
@@ -651,7 +674,7 @@ m_PackageAssets:
         - 2.1.0-preview.3
         - 2.1.0-preview.5
         - 2.1.0-preview.6
-        verified: 1.5.7
+        verified: 1.7.1
       dependencies:
       - name: com.unity.nuget.newtonsoft-json
         version: 2.0.0
@@ -659,16 +682,19 @@ m_PackageAssets:
       - name: com.unity.nuget.newtonsoft-json
         version: 2.0.0
       keywords:
-      - vsc
-      - version
-      - control
-      - collab
-      - collaboration
-      - collaborate
-      - teams
-      - team
-      - cloud
       - backup
+      - cloud
+      - collab
+      - collaborate
+      - collaboration
+      - control
+      - plastic
+      - plasticscm
+      - source
+      - team
+      - teams
+      - version
+      - vcs
       registry:
         id: main
         name: 
@@ -681,13 +707,13 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637551413290000000
+      datePublishedTicks: 637616921650000000
       documentationUrl: 
       hasRepository: 1
       repository:
         type: git
         url: https://github.cds.internal.unity3d.com/unity/com.unity.cloud.collaborate.git
-        revision: f079d307344f568804d3ea6d781013135e614e45
+        revision: 30ef59f552633de9ff0401db4e73ac89982d4ac0
         path: 
     - packageId: com.unity.ide.rider@2.0.7
       testable: 0
@@ -768,7 +794,7 @@ m_PackageAssets:
         version: 1.1.1
       resolvedDependencies:
       - name: com.unity.test-framework
-        version: 1.1.24
+        version: 1.1.27
       - name: com.unity.ext.nunit
         version: 1.0.6
       - name: com.unity.modules.imgui
@@ -796,12 +822,16 @@ m_PackageAssets:
         url: https://github.cds.internal.unity3d.com/unity/com.unity.ide.rider.git
         revision: abb44f053e9a41d2e00e149e32a19bcec76e98b4
         path: 
-    - packageId: com.unity.ide.visualstudio@2.0.8
+    - packageId: com.unity.ide.visualstudio@2.0.11
       testable: 0
       isDirectDependency: 1
-      version: 2.0.8
+      version: 2.0.11
       source: 1
+<<<<<<< HEAD
       resolvedPath: C:\Users\joshu\Documents\GitHub\Zag\MemoryGame\Library\PackageCache\com.unity.ide.visualstudio@2.0.8
+=======
+      resolvedPath: C:\Users\David\Desktop\Zag\Zag\MemoryGame\Library\PackageCache\com.unity.ide.visualstudio@2.0.11
+>>>>>>> e81a0b041760120d1cadf34a5edbb4879ab20e6b
       assetPath: Packages/com.unity.ide.visualstudio
       name: com.unity.ide.visualstudio
       displayName: Visual Studio Editor
@@ -832,6 +862,7 @@ m_PackageAssets:
         - 2.0.7
         - 2.0.8
         - 2.0.9
+        - 2.0.11
         compatible:
         - 1.0.2
         - 1.0.3
@@ -847,13 +878,14 @@ m_PackageAssets:
         - 2.0.7
         - 2.0.8
         - 2.0.9
-        verified: 2.0.9
+        - 2.0.11
+        verified: 2.0.11
       dependencies:
       - name: com.unity.test-framework
         version: 1.1.9
       resolvedDependencies:
       - name: com.unity.test-framework
-        version: 1.1.24
+        version: 1.1.27
       - name: com.unity.ext.nunit
         version: 1.0.6
       - name: com.unity.modules.imgui
@@ -873,13 +905,13 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637562620210000000
+      datePublishedTicks: 637613656180000000
       documentationUrl: 
       hasRepository: 1
       repository:
         type: git
         url: https://github.cds.internal.unity3d.com/unity/com.unity.ide.visualstudio.git
-        revision: 5cdf5d932e6ecbbd83bbe6a40eec2a94b4979501
+        revision: 680e06d94ffca728223ae2cb14bb919cd354e2c1
         path: 
     - packageId: com.unity.ide.vscode@1.2.3
       testable: 0
@@ -950,12 +982,16 @@ m_PackageAssets:
         url: https://github.cds.internal.unity3d.com/unity/com.unity.ide.vscode.git
         revision: b5ec9b38109e52b1b26597d521e4df75e042ebb9
         path: 
-    - packageId: com.unity.test-framework@1.1.24
+    - packageId: com.unity.test-framework@1.1.27
       testable: 0
       isDirectDependency: 1
-      version: 1.1.24
+      version: 1.1.27
       source: 1
+<<<<<<< HEAD
       resolvedPath: C:\Users\joshu\Documents\GitHub\Zag\MemoryGame\Library\PackageCache\com.unity.test-framework@1.1.24
+=======
+      resolvedPath: C:\Users\David\Desktop\Zag\Zag\MemoryGame\Library\PackageCache\com.unity.test-framework@1.1.27
+>>>>>>> e81a0b041760120d1cadf34a5edbb4879ab20e6b
       assetPath: Packages/com.unity.test-framework
       name: com.unity.test-framework
       displayName: Test Framework
@@ -1001,8 +1037,6 @@ m_PackageAssets:
         - 1.1.26
         - 1.1.27
         compatible:
-        - 1.1.24
-        - 1.1.26
         - 1.1.27
         verified: 1.1.27
       dependencies:
@@ -1034,13 +1068,13 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637505702940000000
+      datePublishedTicks: 637594751620000000
       documentationUrl: 
       hasRepository: 1
       repository:
         type: git
         url: git+https://github.com/Unity-Technologies/com.unity.test-framework.git
-        revision: e6fe8892689398c0d9aba4587e0ba69edc3d82b8
+        revision: c2f2cc9b7ea61d42964257363595dff5e8c47c42
         path: 
     - packageId: com.unity.textmeshpro@3.0.6
       testable: 0
@@ -1276,6 +1310,7 @@ m_PackageAssets:
         - 1.5.2
         - 1.5.4
         - 1.5.5
+        - 1.5.6
         - 1.6.0-pre.1
         - 1.6.0-pre.3
         - 1.6.0-pre.4
@@ -1295,6 +1330,7 @@ m_PackageAssets:
         - 1.5.2
         - 1.5.4
         - 1.5.5
+        - 1.5.6
         - 1.6.0-pre.1
         - 1.6.0-pre.3
         - 1.6.0-pre.4
@@ -3560,7 +3596,6 @@ m_PackageAssets:
         - 6.0.0-pre.2
         - 6.0.0-pre.3
         compatible:
-        - 4.0.2
         - 4.0.3
         verified: 4.0.3
       dependencies:
@@ -3671,5 +3706,10 @@ m_PackageAssets:
         path: 
   m_LocalPackages:
     m_LocalFileStatus: []
+<<<<<<< HEAD
 m_ProjectPath: C:/Users/joshu/Documents/GitHub/Zag/MemoryGame/Packages
 m_EditorVersion: 2020.3.12f1 (b3b2c6512326)
+=======
+m_ProjectPath: C:/Users/David/Desktop/Zag/Zag/MemoryGame/Packages
+m_EditorVersion: 2020.3.15f2 (6cf78cb77498)
+>>>>>>> e81a0b041760120d1cadf34a5edbb4879ab20e6b
